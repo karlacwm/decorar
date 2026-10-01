@@ -1,2 +1,4 @@
 .env
 .aider*
+credentials.json
+token.json
