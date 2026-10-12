@@ -1,10 +1,11 @@
-from pydantic import BaseModel
+from typing import Optional
+from pydantic import BaseModel  # pyright: ignore
 
 
 class QuizCard(BaseModel):
     question: str
     answer: str
-    explanation: str = None
+    explanation: Optional[str] = None
 
 
 class QuizDeck(BaseModel):
