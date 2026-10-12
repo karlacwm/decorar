@@ -89,3 +89,23 @@ def test_extractor_cleans_flag_and_translation():
     assert len(deck.cards) == 2
     assert deck.cards[0].answer == "está"
     assert deck.cards[1].answer == "escola"
+
+
+def test_extractor_handles_inline_options():
+    extractor = QuizExtractor()
+    text = """
+    Pergunta 1:
+    Easter eggs 🥚 a. Ovos de Natal b. Ovos de Páscoa c. Ogos de Páscoa
+    ________________
+    ANSWERS:
+    1) Ovos de Páscoa
+    """
+    deck = extractor.extract(text)
+    assert len(deck.cards) == 1
+    assert deck.cards[0].question == "Easter eggs 🥚"
+    assert deck.cards[0].options == [
+        "a. Ovos de Natal",
+        "b. Ovos de Páscoa",
+        "c. Ogos de Páscoa",
+    ]
+    assert deck.cards[0].answer == "Ovos de Páscoa"

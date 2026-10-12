@@ -53,9 +53,7 @@ def test_quizlet_exporter_without_clipboard(tmp_path: Path):
     output_file = tmp_path / "quizlet_no_clip.txt"
 
     exporter = QuizletExporter()
-    output = exporter.export(deck,
-                             output_path=output_file,
-                             copy_to_clipboard=False)
+    output = exporter.export(deck, output_path=output_file, copy_to_clipboard=False)
 
     assert output_file.exists()
     assert output == "Lua\tMoon"

@@ -41,7 +41,9 @@ class QuizExtractor(BaseExtractor):
             re.IGNORECASE,
         )
         if not key_match:
-            raise ValueError("Could not find 'KEY:' or 'ANSWERS:' section in the email text.")
+            raise ValueError(
+                "Could not find 'KEY:' or 'ANSWERS:' section in the email text."
+            )
 
         questions_section = cleaned_text[: key_match.start()]
         answers_section = cleaned_text[key_match.end() :]
@@ -77,17 +79,31 @@ class QuizExtractor(BaseExtractor):
             q_num = int(match.group(1))
             block_text = match.group(2).strip()
 
-            # Find all options: either letters (A) ...) or numbers (1. ...)
-            options = [
-                line.strip()
-                for line in block_text.splitlines()
-                if re.match(r"^(?:[A-Ca-c]\)|[1-4]\.)\s*", line.strip())
-            ]
+            # Find where options begin (A) or a. or 1. or 1))
+            first_opt_match = re.search(
+                r"(?:^|\s+|(?<=[^\w\s])|(?<=[a-zA-Z\.\?!]))([A-Da-d1-4][\.\)]\s*)",
+                block_text,
+            )
 
-            # The question is everything before the first option A or 1.)
-            prompt_part = re.split(r"\n\s*(?:[A-Ca-c]\)|1\.)", block_text)[0].strip()
-            prompt = " ".join(prompt_part.split())
+            if first_opt_match:
+                prompt_raw = block_text[: first_opt_match.start()].strip()
+                options_raw = block_text[first_opt_match.start() :].strip()
 
+                # Split before each option marker (A., B., a), 1., etc.)
+                raw_options = re.split(
+                    r"(?:^|\s+|(?<=[^\w\s])|(?<=[a-zA-Z\.\?!]))(?=[A-Da-d1-4][\.\)])",
+                    options_raw,
+                )
+                options = [
+                    " ".join(opt.split()).strip()
+                    for opt in raw_options
+                    if re.match(r"^[A-Da-d1-4][\.\)]\s*", opt.strip())
+                ]
+            else:
+                prompt_raw = block_text
+                options = []
+
+            prompt = " ".join(prompt_raw.split()).strip()
             questions[q_num] = {"prompt": prompt, "options": options}
 
         # 5. Assemble cards

@@ -44,8 +44,7 @@ class QuizletExporter(BaseExporter):
     def format_deck(self, deck: QuizDeck) -> str:
         """Convert deck into Tab-delimited with custom card delimiter."""
         card_strings = [
-            f"{self.format_card_front(card)}\t{card.answer}"
-            for card in deck.cards
+            f"{self.format_card_front(card)}\t{card.answer}" for card in deck.cards
         ]
         return self.card_delimiter.join(card_strings)
 

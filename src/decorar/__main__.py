@@ -53,8 +53,7 @@ def fetch_all_to_separate_files():
             file_name = f"{sanitize_filename(subject)}.txt"
             out_file = output_dir / file_name
 
-            exporter.export(deck, output_path=out_file,
-                            copy_to_clipboard=False)
+            exporter.export(deck, output_path=out_file, copy_to_clipboard=False)
             print(f"✓ Saved {len(deck.cards)} cards -> {file_name}")
             count += 1
         except (ValueError, KeyError) as e:
@@ -92,9 +91,7 @@ def fetch_all_to_single_file():
             print(f"⚠ Skipping '{subject}': {e}")
 
     master_deck = QuizDeck(cards=all_cards)
-    exporter.export(master_deck,
-                    output_path=output_file,
-                    copy_to_clipboard=True)
+    exporter.export(master_deck, output_path=output_file, copy_to_clipboard=True)
 
     print(
         f"\nFinished! Combined {len(all_cards)} total cards from "
