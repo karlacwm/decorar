@@ -25,7 +25,6 @@ class BaseExtractor(ABC):
     @abstractmethod
     def extract(self, text: str) -> QuizDeck:
         """Extract quiz cards from raw text."""
-        pass
 
 
 class QuizExtractor(BaseExtractor):
@@ -35,30 +34,33 @@ class QuizExtractor(BaseExtractor):
         # 1. Clean invisible unicode padding
         cleaned_text = text.replace("\u200c", "").replace("\ufeff", "")
 
-        # 2. Split into Questions and Answers sections at 'KEY:'
-        key_match = re.search(r"\bKEY\s*:", cleaned_text, re.IGNORECASE)
+        # 2. Split at 'KEY:' or 'ANSWERS:' or 'ANSWER:' or 'RESPOSTAS:'
+        key_match = re.search(
+            r"\b(KEY|ANSWERS?|RESPOSTAS?|SOLUÇÕES?|SOLUTIONS?)\b\s*:?",
+            cleaned_text,
+            re.IGNORECASE,
+        )
         if not key_match:
-            raise ValueError(
-                "Could not find 'KEY:' section in the email text.")
+            raise ValueError("Could not find 'KEY:' or 'ANSWERS:' in the email text.")
 
         questions_section = cleaned_text[: key_match.start()]
-        answers_section = cleaned_text[key_match.end():]
+        answers_section = cleaned_text[key_match.end() :]
 
-        # 3. Parse Answers: e.g. "1. A - Outono"
+        # 3. Parse Answers:
+        # Matches: "1. A - Outono" OR "1) os edifícios" OR "1. os edifícios"
         answers: dict[int, str] = {}
         answer_pattern = re.compile(
-            r"^\s*(\d+)\.\s*[A-Za-z]\s*[-–—]\s*(.+)$", re.MULTILINE
+            r"^\s*(\d+)[\.\)]\s*(?:[A-Za-z]\s*[-–—]\s*)?(.+)$", re.MULTILINE
         )
         for match in answer_pattern.finditer(answers_section):
             q_num = int(match.group(1))
             answers[q_num] = match.group(2).strip()
 
-        # 4. Parse Question blocks: Pergunta <N>
+        # 4. Parse Question blocks: Pergunta <N>:
         questions: dict[int, dict] = {}
-        # Matches each question block starting from "Pergunta <N>:"
         block_pattern = re.compile(
-            r"Pergunta\s+(\d+)\s*:\s*\n*(.*?)(?=(?:Pergunta\s+\d+\s*:|\
-                KEY\s*:|__{5,}|\Z))",
+            r"Pergunta\s+(\d+)\s*:\s*\n*(.*?)"
+            r"(?=(?:Pergunta\s+\d+\s*:|\b(?:KEY|ANSWERS?)\b|__{5,}|\Z))",
             re.DOTALL | re.IGNORECASE,
         )
 
@@ -66,15 +68,15 @@ class QuizExtractor(BaseExtractor):
             q_num = int(match.group(1))
             block_text = match.group(2).strip()
 
-            # Find all options (e.g. A) ..., B) ..., C) ...)
+            # Find all options: either letters (A) ...) or numbers (1. ...)
             options = [
                 line.strip()
                 for line in block_text.splitlines()
-                if re.match(r"^[A-Ca-c]\)\s*", line.strip())
+                if re.match(r"^(?:[A-Ca-c]\)|[1-4]\.)\s*", line.strip())
             ]
 
-            # The question prompt is everything before the first option 'A)'
-            prompt_part = re.split(r"\n\s*[A-Ca-c]\)", block_text)[0].strip()
+            # The question is everything before the first option A or 1.)
+            prompt_part = re.split(r"\n\s*(?:[A-Ca-c]\)|1\.)", block_text)[0].strip()
             prompt = " ".join(prompt_part.split())
 
             questions[q_num] = {"prompt": prompt, "options": options}

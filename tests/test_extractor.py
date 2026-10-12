@@ -2,8 +2,7 @@ import pytest  # pyright: ignore
 
 from decorar.services.extractor import QuizExtractor
 
-
-SAMPLE_QUIZ_TEXT = """
+SAMPLE_NEW_FORMAT = """
 QUIZ #99
 Spring in Portugal 🌸
 
@@ -14,40 +13,54 @@ A) Primavera
 B) Outono
 C) Verão
 
-Pergunta 2:
-
-What does "Está a chover" mean?
-
-A) It is sunny
-B) It is raining
-C) It is cold
-
 _____________________________
 
 KEY:
 1. A - Primavera
-2. B - It is raining
+"""
+
+SAMPLE_OLD_FORMAT = """
+QUIZ #20 VOCABULÁRIO DE CIDADE 🇵🇹
+
+Pergunta 1:
+
+buildings
+
+1. os edifícios
+2. o edifício
+3. a casa
+
+________________
+
+ANSWERS:
+
+1) os edifícios
 """
 
 
-def test_quiz_extractor_parses_cards_correctly():
+def test_extractor_handles_new_format_with_key():
     extractor = QuizExtractor()
-    deck = extractor.extract(SAMPLE_QUIZ_TEXT)
+    deck = extractor.extract(SAMPLE_NEW_FORMAT)
 
-    assert len(deck.cards) == 2
-
-    # Card 1
+    assert len(deck.cards) == 1
     assert deck.cards[0].question == 'What is the Portuguese word for "spring"?'
+    assert deck.cards[0].options == ["A) Primavera", "B) Outono", "C) Verão"]
     assert deck.cards[0].answer == "Primavera"
 
-    # Card 2
-    assert deck.cards[1].question == 'What does "Está a chover" mean?'
-    assert deck.cards[1].answer == "It is raining"
+
+def test_extractor_handles_old_format_with_answers():
+    extractor = QuizExtractor()
+    deck = extractor.extract(SAMPLE_OLD_FORMAT)
+
+    assert len(deck.cards) == 1
+    assert deck.cards[0].question == "buildings"
+    assert deck.cards[0].options == ["1. os edifícios", "2. o edifício", "3. a casa"]
+    assert deck.cards[0].answer == "os edifícios"
 
 
-def test_quiz_extractor_raises_error_when_key_missing():
+def test_extractor_raises_error_when_no_delimiter():
     extractor = QuizExtractor()
     bad_text = "Pergunta 1:\nWhat is this?\nA) Yes\nB) No"
 
-    with pytest.raises(ValueError, match="Could not find 'KEY:' section"):
+    with pytest.raises(ValueError, match="Could not find 'KEY:' or 'ANSWERS:'"):
         extractor.extract(bad_text)

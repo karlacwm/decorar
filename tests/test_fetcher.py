@@ -1,5 +1,7 @@
-import pytest  # pyright: ignore
 from pathlib import Path
+
+import pytest  # pyright: ignore
+
 from decorar.services.fetcher import FileFetcher
 
 

@@ -6,8 +6,10 @@
 # Step 3.2: Write output to data/output/quizlet.txt
 # and copy to system clipboard using pyperclip.copy().
 
+import contextlib
 from abc import ABC, abstractmethod
 from pathlib import Path
+
 import pyperclip  # pyright: ignore
 
 from decorar.models.card import QuizCard, QuizDeck
@@ -17,9 +19,13 @@ class BaseExporter(ABC):
     """Abstract interface defining the export contract."""
 
     @abstractmethod
-    def export(self, deck: QuizDeck, output_path: Path | str | None = None) -> str:
+    def export(
+        self,
+        deck: QuizDeck,
+        output_path: Path | str | None = None,
+        copy_to_clipboard: bool = True,
+    ) -> str:
         """Export the quiz deck and return formatted text."""
-        pass
 
 
 class QuizletExporter(BaseExporter):
@@ -42,7 +48,12 @@ class QuizletExporter(BaseExporter):
         ]
         return self.card_delimiter.join(card_strings)
 
-    def export(self, deck: QuizDeck, output_path: Path | str | None = None) -> str:
+    def export(
+        self,
+        deck: QuizDeck,
+        output_path: Path | str | None = None,
+        copy_to_clipboard: bool = True,
+    ) -> str:
         formatted_text = self.format_deck(deck)
 
         if output_path:
@@ -50,9 +61,8 @@ class QuizletExporter(BaseExporter):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(formatted_text, encoding="utf-8")
 
-        try:
-            pyperclip.copy(formatted_text)
-        except Exception:
-            pass
+        if copy_to_clipboard:
+            with contextlib.suppress(pyperclip.PyperclipException, OSError):
+                pyperclip.copy(formatted_text)
 
         return formatted_text
