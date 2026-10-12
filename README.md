@@ -1,4 +1,4 @@
-# 🇵🇹 Decorar
+# Decorar
 
 > **Decorar** *(Portuguese)*: To memorize / to learn by heart.
 
@@ -150,5 +150,11 @@ decorar/
 │   └── output/                  # Generated Quizlet text decks
 ├── Makefile                     # Shortcut commands (run, test, lint)
 ├── pyproject.toml               # Project metadata & dependencies
+├── LICENSE                      # MIT License
 └── README.md
 ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Note that this license applies to the software codebase itself; quiz content created by Anita remains intellectual property of *Portuguese With Anita*.
+
