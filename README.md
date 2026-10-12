@@ -128,7 +128,7 @@ make clean
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 decorar/
