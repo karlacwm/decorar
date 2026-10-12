@@ -64,3 +64,28 @@ def test_extractor_raises_error_when_no_delimiter():
 
     with pytest.raises(ValueError, match="Could not find 'KEY:' or 'ANSWERS:'"):
         extractor.extract(bad_text)
+
+
+def test_extractor_cleans_flag_and_translation():
+    extractor = QuizExtractor()
+    text = """
+    Pergunta 1:
+    Ele __ sentado na cadeira.
+    1. estou
+    2. está
+    3. estamos
+
+    Pergunta 2:
+    A Maria amanhã vai à ___.
+    a) iscola
+    b) scola
+    c) escola
+    ________________
+    ANSWERS:
+    1) está. 🇬🇧 He's sitting on the chair.
+    2) 🇵🇹 escola 🇬🇧 Maria goes to school tomorrow.
+    """
+    deck = extractor.extract(text)
+    assert len(deck.cards) == 2
+    assert deck.cards[0].answer == "está"
+    assert deck.cards[1].answer == "escola"

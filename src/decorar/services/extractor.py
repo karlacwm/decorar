@@ -34,14 +34,14 @@ class QuizExtractor(BaseExtractor):
         # 1. Clean invisible unicode padding
         cleaned_text = text.replace("\u200c", "").replace("\ufeff", "")
 
-        # 2. Split at 'KEY:' or 'ANSWERS:' or 'ANSWER:' or 'RESPOSTAS:'
+        # 2. Split at 'KEY:' or 'ANSWERS:' heading (must be start of line or followed by colon)
         key_match = re.search(
-            r"\b(KEY|ANSWERS?|RESPOSTAS?|SOLUÇÕES?|SOLUTIONS?)\b\s*:?",
+            r"(?:^|\n)\s*\*?\*?(?:KEY|ANSWERS?|RESPOSTAS?|SOLUÇÕES?|SOLUTIONS?)\*?\*?\s*[:\n]",
             cleaned_text,
             re.IGNORECASE,
         )
         if not key_match:
-            raise ValueError("Could not find 'KEY:' or 'ANSWERS:' in the email text.")
+            raise ValueError("Could not find 'KEY:' or 'ANSWERS:' section in the email text.")
 
         questions_section = cleaned_text[: key_match.start()]
         answers_section = cleaned_text[key_match.end() :]
@@ -54,7 +54,16 @@ class QuizExtractor(BaseExtractor):
         )
         for match in answer_pattern.finditer(answers_section):
             q_num = int(match.group(1))
-            answers[q_num] = match.group(2).strip()
+            raw_answer = match.group(2).strip()
+
+            # Remove English flag translations (e.g. "está. 🇬🇧 He's sitting...")
+            cleaned_answer = re.sub(r"\s*(?:🇬🇧|🇺🇸).*$", "", raw_answer).strip()
+            # Remove Portuguese flag tag (e.g. "🇵🇹 escola" -> "escola")
+            cleaned_answer = cleaned_answer.replace("🇵🇹", "").strip()
+            # Remove any trailing period left behind (e.g. "está." -> "está")
+            cleaned_answer = cleaned_answer.rstrip(".").strip()
+
+            answers[q_num] = cleaned_answer or raw_answer
 
         # 4. Parse Question blocks: Pergunta <N>:
         questions: dict[int, dict] = {}

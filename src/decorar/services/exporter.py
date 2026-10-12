@@ -31,7 +31,7 @@ class BaseExporter(ABC):
 class QuizletExporter(BaseExporter):
     """Formats MCQ cards for Quizlet and saves to file/clipboard."""
 
-    def __init__(self, card_delimiter: str = "\n\n;;;\n\n") -> None:
+    def __init__(self, card_delimiter: str = "\n\n;\n\n") -> None:
         self.card_delimiter = card_delimiter
 
     def format_card_front(self, card: QuizCard) -> str:
@@ -44,7 +44,8 @@ class QuizletExporter(BaseExporter):
     def format_deck(self, deck: QuizDeck) -> str:
         """Convert deck into Tab-delimited with custom card delimiter."""
         card_strings = [
-            f"{self.format_card_front(card)}\t{card.answer}" for card in deck.cards
+            f"{self.format_card_front(card)}\t{card.answer}"
+            for card in deck.cards
         ]
         return self.card_delimiter.join(card_strings)
 

@@ -13,7 +13,7 @@ def sanitize_filename(name: str) -> str:
 
 
 def fetch_latest_and_copy():
-    """Fetch only the latest quiz from Gmail, save it, and copy to clipboard."""
+    """Fetch only the latest quiz, save it, and copy to clipboard."""
     output_file = Path("data/output/latest_quiz.txt")
     print("Fetching the latest quiz from Gmail...")
 
@@ -47,12 +47,14 @@ def fetch_all_to_separate_files():
         try:
             deck = extractor.extract(body)
             if not deck.cards:
+                print(f"⚠ Skipping '{subject}': 0 cards parsed")
                 continue
 
             file_name = f"{sanitize_filename(subject)}.txt"
             out_file = output_dir / file_name
 
-            exporter.export(deck, output_path=out_file, copy_to_clipboard=False)
+            exporter.export(deck, output_path=out_file,
+                            copy_to_clipboard=False)
             print(f"✓ Saved {len(deck.cards)} cards -> {file_name}")
             count += 1
         except (ValueError, KeyError) as e:
@@ -62,7 +64,7 @@ def fetch_all_to_separate_files():
 
 
 def fetch_all_to_single_file():
-    """Fetch all quizzes, combine them into ONE master file, and copy to clipboard."""
+    """Fetch all quizzes, combine them into ONE file, and copy to clipboard."""
     output_file = Path("data/output/all_quizzes.txt")
     print("Fetching all quizzes and combining into ONE master deck...")
 
@@ -80,6 +82,7 @@ def fetch_all_to_single_file():
         try:
             deck = extractor.extract(body)
             if not deck.cards:
+                print(f"⚠ Skipping '{subject}': 0 cards parsed")
                 continue
 
             all_cards.extend(deck.cards)
@@ -89,10 +92,12 @@ def fetch_all_to_single_file():
             print(f"⚠ Skipping '{subject}': {e}")
 
     master_deck = QuizDeck(cards=all_cards)
-    exporter.export(master_deck, output_path=output_file, copy_to_clipboard=True)
+    exporter.export(master_deck,
+                    output_path=output_file,
+                    copy_to_clipboard=True)
 
     print(
-        f"\n🎉 Finished! Combined {len(all_cards)} total cards from "
+        f"\nFinished! Combined {len(all_cards)} total cards from "
         f"{quizzes_processed} quizzes into {output_file}."
     )
     print("✓ All cards copied to clipboard! Ready to paste into Quizlet.")
@@ -100,13 +105,13 @@ def fetch_all_to_single_file():
 
 if __name__ == "__main__":
     try:
-        # Option 1: Fetch all past quizzes into ONE big master file & copy to clipboard
+        # Option 1: Fetch all past quizzes into one file & copy to clipboard
         fetch_all_to_single_file()
 
         # Option 2: Fetch only the latest weekly quiz and copy to clipboard
         # fetch_latest_and_copy()
 
-        # Option 3: Fetch all quizzes into separate individual files (no clipboard)
+        # Option 3: Fetch all quizzes into separate files (no clipboard)
         # fetch_all_to_separate_files()
     except KeyboardInterrupt:
         print("\nInterrupted by user. Exiting...")
