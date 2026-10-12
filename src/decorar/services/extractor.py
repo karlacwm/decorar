@@ -79,9 +79,9 @@ class QuizExtractor(BaseExtractor):
             q_num = int(match.group(1))
             block_text = match.group(2).strip()
 
-            # Find where options begin (A) or a. or 1. or 1))
+            # Find where options begin (e.g. ' a. ', ' A) ', ' 1. ', or '?A) ')
             first_opt_match = re.search(
-                r"(?:^|\s+|(?<=[^\w\s])|(?<=[a-zA-Z\.\?!]))([A-Da-d1-4][\.\)]\s*)",
+                r"(?:^|\s+|(?<=[?!:\n]))([A-Da-d1-4][\.\)]\s+)",
                 block_text,
             )
 
@@ -89,15 +89,15 @@ class QuizExtractor(BaseExtractor):
                 prompt_raw = block_text[: first_opt_match.start()].strip()
                 options_raw = block_text[first_opt_match.start() :].strip()
 
-                # Split before each option marker (A., B., a), 1., etc.)
+                # Split before each option marker (must be followed by space)
                 raw_options = re.split(
-                    r"(?:^|\s+|(?<=[^\w\s])|(?<=[a-zA-Z\.\?!]))(?=[A-Da-d1-4][\.\)])",
+                    r"(?:^|\s+|(?<=[?!:\n]))(?=[A-Da-d1-4][\.\)]\s+)",
                     options_raw,
                 )
                 options = [
                     " ".join(opt.split()).strip()
                     for opt in raw_options
-                    if re.match(r"^[A-Da-d1-4][\.\)]\s*", opt.strip())
+                    if re.match(r"^[A-Da-d1-4][\.\)]\s+", opt.strip())
                 ]
             else:
                 prompt_raw = block_text
@@ -110,12 +110,12 @@ class QuizExtractor(BaseExtractor):
         cards: list[QuizCard] = []
         for q_num in sorted(questions.keys()):
             if q_num in answers:
-                cards.append(
-                    QuizCard(
-                        question=questions[q_num]["prompt"],
-                        options=questions[q_num]["options"],
-                        answer=answers[q_num],
-                    )
+                card = QuizCard(
+                    question=questions[q_num]["prompt"],
+                    options=questions[q_num]["options"],
+                    answer=answers[q_num],
                 )
+                card.needs_review = card.is_unresolved()
+                cards.append(card)
 
         return QuizDeck(cards=cards)

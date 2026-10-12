@@ -109,3 +109,41 @@ def test_extractor_handles_inline_options():
         "c. Ogos de Páscoa",
     ]
     assert deck.cards[0].answer == "Ovos de Páscoa"
+
+
+def test_extractor_identifies_unresolved_cards():
+    extractor = QuizExtractor()
+    text = """
+    Pergunta 1:
+    What is the portuguese word for witch?
+    A) fada
+    B) fantasma
+    C) bruxa
+    ________________
+    ANSWERS:
+    1) ->
+    """
+    deck = extractor.extract(text)
+    assert len(deck.cards) == 1
+    assert deck.cards[0].is_unresolved() is True
+    assert len(deck.valid_cards()) == 0
+    assert len(deck.unresolved_cards()) == 1
+
+
+def test_extractor_does_not_split_words_ending_in_a():
+    extractor = QuizExtractor()
+    text = """
+    Pergunta 1:
+    De vez em quando, ele vai à praia.
+    1. irá
+    2. vão
+    3. vai
+    ________________
+    ANSWERS:
+    1) vai
+    """
+    deck = extractor.extract(text)
+    assert len(deck.cards) == 1
+    # Ensure 'praia.' is not cut into 'prai' and 'a.'
+    assert deck.cards[0].question == "De vez em quando, ele vai à praia."
+    assert deck.cards[0].options == ["1. irá", "2. vão", "3. vai"]

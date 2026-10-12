@@ -1,4 +1,4 @@
-.PHONY: run test lint format clean
+.PHONY: run test lint format clean ready
 
 run:
 	uv run python3 -m src.decorar
@@ -15,3 +15,8 @@ format:
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type d -name "output" -exec rm -rf {} +
+
+ready:
+	make format
+	make lint
+	make test
