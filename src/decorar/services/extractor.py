@@ -29,7 +29,7 @@ class BaseExtractor(ABC):
 
 
 class QuizExtractor(BaseExtractor):
-    """Extracts question-answer pairs from Anita's newsletter quizzes."""
+    """Extracts question-answer pairs and choices from quizzes."""
 
     def extract(self, text: str) -> QuizDeck:
         # 1. Clean invisible unicode padding
@@ -45,36 +45,48 @@ class QuizExtractor(BaseExtractor):
         answers_section = cleaned_text[key_match.end():]
 
         # 3. Parse Answers: e.g. "1. A - Outono"
-        # Matches: (1). A - (Outono)
         answers: dict[int, str] = {}
         answer_pattern = re.compile(
             r"^\s*(\d+)\.\s*[A-Za-z]\s*[-–—]\s*(.+)$", re.MULTILINE
         )
         for match in answer_pattern.finditer(answers_section):
             q_num = int(match.group(1))
-            answer_text = match.group(2).strip()
-            answers[q_num] = answer_text
+            answers[q_num] = match.group(2).strip()
 
-        # 4. Parse Questions: e.g. Pergunta 1:\n What is ...?\n\nA)
-        # Matches text between 'Pergunta <N>:' and the first option 'A)'
-        questions: dict[int, str] = {}
-        question_pattern = re.compile(
-            r"Pergunta\s+(\d+)\s*:\s*\n*(.*?)(?=\n\s*[A-Ca-c]\)|\Z)",
-            re.DOTALL,
+        # 4. Parse Question blocks: Pergunta <N>
+        questions: dict[int, dict] = {}
+        # Matches each question block starting from "Pergunta <N>:"
+        block_pattern = re.compile(
+            r"Pergunta\s+(\d+)\s*:\s*\n*(.*?)(?=(?:Pergunta\s+\d+\s*:|\
+                KEY\s*:|__{5,}|\Z))",
+            re.DOTALL | re.IGNORECASE,
         )
-        for match in question_pattern.finditer(questions_section):
-            q_num = int(match.group(1))
-            # Clean up line breaks within multi-line questions
-            q_text = " ".join(match.group(2).split()).strip()
-            questions[q_num] = q_text
 
-        # 5. Pair questions and answers
+        for match in block_pattern.finditer(questions_section):
+            q_num = int(match.group(1))
+            block_text = match.group(2).strip()
+
+            # Find all options (e.g. A) ..., B) ..., C) ...)
+            options = [
+                line.strip()
+                for line in block_text.splitlines()
+                if re.match(r"^[A-Ca-c]\)\s*", line.strip())
+            ]
+
+            # The question prompt is everything before the first option 'A)'
+            prompt_part = re.split(r"\n\s*[A-Ca-c]\)", block_text)[0].strip()
+            prompt = " ".join(prompt_part.split())
+
+            questions[q_num] = {"prompt": prompt, "options": options}
+
+        # 5. Assemble cards
         cards: list[QuizCard] = []
         for q_num in sorted(questions.keys()):
             if q_num in answers:
                 cards.append(
                     QuizCard(
-                        question=questions[q_num],
+                        question=questions[q_num]["prompt"],
+                        options=questions[q_num]["options"],
                         answer=answers[q_num],
                     )
                 )

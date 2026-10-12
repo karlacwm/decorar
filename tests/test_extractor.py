@@ -37,12 +37,11 @@ def test_quiz_extractor_parses_cards_correctly():
     assert len(deck.cards) == 2
 
     # Card 1
-    assert deck.cards[0].question == \
-        "What is the Portuguese word for \"spring\"?"
+    assert deck.cards[0].question == 'What is the Portuguese word for "spring"?'
     assert deck.cards[0].answer == "Primavera"
 
     # Card 2
-    assert deck.cards[1].question == "What does \"Está a chover\" mean?"
+    assert deck.cards[1].question == 'What does "Está a chover" mean?'
     assert deck.cards[1].answer == "It is raining"
 
 

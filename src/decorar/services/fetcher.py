@@ -46,14 +46,13 @@ class FileFetcher(BaseFetcher):
             body = msg.get_body(preferencelist=("plain",))
             if body:
                 return body.get_content()
-            raise ValueError(
-                f"No plain-text content found in {self.file_path}")
+            raise ValueError(f"No plain-text content found in {self.file_path}")
 
         # Fallback for plain .txt files
         return self.file_path.read_text(encoding="utf-8")
 
 
-# class EmailFetcher(BaseFetcher):
+# class ImapFetcher(BaseFetcher):
 #     """Fetches quiz content from Gmail."""
 
 #     def __init__(self):
