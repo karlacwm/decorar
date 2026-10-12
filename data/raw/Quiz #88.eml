@@ -1,0 +1,3328 @@
+Delivered-To: karlacheung73@gmail.com
+Received: by 2002:a05:6a11:c02:b0:756:14c7:f059 with SMTP id rl2csp2579109pxb;
+        Sun, 4 Oct 2026 01:08:25 -0700 (PDT)
+X-Received: by 2002:a05:6214:f29:b0:917:a1f9:76b7 with SMTP id 6a1803df08f44-917c0181a75mr149277906d6.39.1791101305005;
+        Sun, 04 Oct 2026 01:08:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791101305; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fe2op8G8tWMuPsNf3mhEGD7Sm4t5yVJpnvIrQNAhQaj2Ulcv4pEGP3iVOYrWXulI3V
+         xw+VGBVkKlc2Qhms3A4k3pd5hF9d2bic3axPBPmGLVAxkJlmuHXmXZSqeJKJYxCRbAMv
+         4NJm2KXJGU9SWJG4ZPAqu6Uvp8bQTiZ6vc2ll+PvT4sbdvnjt5vrMo6Ja7ChtuPu7V/+
+         /8D/UnULrPH/9RFxWFTQs7oAm18ZaURtKH8S0ex4eL+JDukKwX55q3ZJoT18GQmuA5+V
+         fC3Fq27cL5IOVMQ7j0skDUvrnyOVqeTAxJz75/rMuyThFQqBX9isQTrX+NNF6EDIVXCD
+         V55w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=message-id:list-unsubscribe-post:list-unsubscribe:reply-to:to:from
+         :subject:mime-version:date:sender:dkim-signature:dkim-signature;
+        bh=w8AJAQ+Alu6OjNatvBH5CjKuEZH230jk8Tb/KhPUN50=;
+        fh=WDo5apJxJAmI44dM5uMet7T5rVO8D56gveQ7lSidU+I=;
+        b=Ql+722ywwPw1+kGdets3DtW2fS6pXnXtYaTsNhFIMsoonSbmvZGAcWndpCaDPcaznW
+         E8U/5fzx6xx92bY1VsckkeH5JSWJAxfRg8Tg3SIcAhW3jVzpBdznv0a2rSuLYhHNXpb+
+         q0x/gnBXz0ZGDi5fDfrm0FSMtbKMC5k9cDQxwNNfZCDJnYcStgt7rbf+7saE91k2oX8X
+         WqBe81qAxY0u6vdBvWoqVBQHxeXXLwkNv2viFYN9FqcBbv/3pJVweVtEutkQhNnY9Dg6
+         4m/GDY+6zc5x3C3I+YCMSRTagXN8Fakx+MZMzRT4AxYOIHejnop97r4DlX/gY93clWd1
+         vE8A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@h.kajabimail.net header.s=k1 header.b=tAq630hh;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=Fb1PipeI;
+       spf=pass (google.com: domain of bounce+v2+82225b.f68651.1791360502.baakaqxgseexq6qligrmjky1c1fv6czgaq~karlacheung73=gmail.com@h.kajabimail.net designates 143.55.229.228 as permitted sender) smtp.mailfrom="bounce+v2+82225b.f68651.1791360502.BAAKAQXGseEXq6qLigRMJKY1C1Fv6czGaQ~karlacheung73=gmail.com@h.kajabimail.net";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=h.kajabimail.net
+Return-Path: <bounce+v2+82225b.f68651.1791360502.BAAKAQXGseEXq6qLigRMJKY1C1Fv6czGaQ~karlacheung73=gmail.com@h.kajabimail.net>
+Received: from mail229-228.static.kajabimail.net (mail229-228.static.kajabimail.net. [143.55.229.228])
+        by mx.google.com with UTF8SMTPS id 6a1803df08f44-917edbe2e91si71191376d6.606.2026.10.04.01.08.24
+        for <karlacheung73@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Oct 2026 01:08:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+v2+82225b.f68651.1791360502.baakaqxgseexq6qligrmjky1c1fv6czgaq~karlacheung73=gmail.com@h.kajabimail.net designates 143.55.229.228 as permitted sender) client-ip=143.55.229.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@h.kajabimail.net header.s=k1 header.b=tAq630hh;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=Fb1PipeI;
+       spf=pass (google.com: domain of bounce+v2+82225b.f68651.1791360502.baakaqxgseexq6qligrmjky1c1fv6czgaq~karlacheung73=gmail.com@h.kajabimail.net designates 143.55.229.228 as permitted sender) smtp.mailfrom="bounce+v2+82225b.f68651.1791360502.BAAKAQXGseEXq6qLigRMJKY1C1Fv6czGaQ~karlacheung73=gmail.com@h.kajabimail.net";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=h.kajabimail.net
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=h.kajabimail.net; q=dns/txt; s=k1; t=1791101304; x=1791108504;
+ h=Message-Id: List-Unsubscribe-Post: List-Unsubscribe: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=w8AJAQ+Alu6OjNatvBH5CjKuEZH230jk8Tb/KhPUN50=;
+ b=tAq630hhJrwF7xzj0WJ8KBT32LBWGtrk8fPnh++GoZ/QszW5L6tJhI3y0oKt4C5lxrPc3JKdRC1s/LlemRLXTVfDSifkTsXvP4Q1mSOOeecdILi40rKto1aL61D2IvReUofEfWOYeVPFlXszhg97q12XeVFoaYIgVe6gXsfbQ7c=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1791101304; x=1791108504;
+ h=Message-Id: List-Unsubscribe-Post: List-Unsubscribe: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=w8AJAQ+Alu6OjNatvBH5CjKuEZH230jk8Tb/KhPUN50=;
+ b=Fb1PipeIPV+aHyoVwK42otZExmMuTkRboJFV4/VjjveHYbpZtvJTSqkwcmyjbkz/X4iuUUUUGfqzc9uZnYyoc0ZRQG6/pG6ef5oMo14RYqFxDcv7w8eIPr5tM3hE+KjmGxv257e5JQqIR8DkA0/eWoZtpwQ7T8u4I81fK2U0yVM=
+X-Mailgun-Sid: WyIwYjhmNiIsImthcmxhY2hldW5nNzNAZ21haWwuY29tIiwiZjY4NjUxIl0=
+X-Feedback-Id: portuguesewithanita@h.kajabimail.net:Site
+ ID#2147580833:604a525ecb1de8720b07df68:mailgun
+Received: by ec9d1ee9064a6107f206565e77e0fa83b467cf1a1e36eb2909066c93737bf873 with HTTP
+ id 6ac20976228e27d54a023088; Sun, 04 Oct 2026 08:08:22 GMT
+X-Mailgun-Sending-Ip-Pool-Name: Marketing H
+X-Mailgun-Sending-Ip-Pool: 627e6165d45c52808c62a6c7
+X-Mailgun-Sending-Ip: 143.55.229.228
+X-Mailgun-Batch-Id: 6ac20976228e27d54a023088
+Sender: portuguesewithanita@h.kajabimail.net
+Date: Sun, 04 Oct 2026 08:08:22 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="f712499bf79d1d2f5cea3224d96e975664ad15206c481b028b9c156efbb1"
+Subject: =?UTF-8?b?8J+HtfCfh7kgUXVpeiAjODg=?=
+From: Portuguese With Anita <portuguesewithanita@h.kajabimail.net>
+To: karlacheung73@gmail.com
+X-Mailgun-Tag: Site ID#2147580833
+X-Mailgun-Drop-Message: false
+X-Mailgun-Track: true
+Reply-To: anitasportugueselessons@gmail.com
+List-Unsubscribe: <https://www.portuguesewithanita.com/list_unsubscribe?contact_id=2425875338&uuid=21d5e047-a0f4-4213-90e4-dfd1d8d43afc>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailgun-Variables: {"app_name": "kajabi-storefronts-production", "email_delivery_id":
+ "45171063080", "email_id": "2158642928", "email_message_type":
+ "email_broadcast", "email_resource_id": "2158642928", "email_sequence_id":
+ "", "email_subtype": "EmailBroadcast", "email_type": "EmailBroadcast",
+ "message_sender_domain": "h.kajabimail.net", "recipient_id": "2425875338",
+ "site_id": "2147580833"}
+Message-Id: <20261004080822.f4d83a5339089363@h.kajabimail.net>
+
+--f712499bf79d1d2f5cea3224d96e975664ad15206c481b028b9c156efbb1
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Autumn in Portugal
+=F0=9F=8D=82 =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+
+body, table, td { font-family: Arial, Helvetica, sans-serif
+!important; }
+
+h1, h2, h3, h4, h5, h6 {
+font-family: Arial, Helvetica, sans-serif !important;
+mso-line-height-rule: exactly;
+line-height: 96% !important;
+}
+
+View in Web Browser=20
+( https://email.h.kajabimail.net/c/eJxskc2O2ywYha_G3nxKhF8whgWLyZdJVXXXSk2V=
+jYXhtc3EBhfwpHP3VX5GqtpZ8jxwpMPRy9J6PaM66xfduU3KIWIfg89ps8RgV5Nd8KVVPRe8rkp=
+UVSOrilSUsBJn7abW4uReMb61zipWV01FOCWCPKyzCqpacAYSxIPNmJIesM1vC6o76mLQ1uiUH1=
+ciprBGgx--T_hzRX-X72jtbmnP19Pur7CPzKi4BLCdNVI2jNcInbS8lqgJMq2Z7EungACvCGFEE=
+AGw7ZkVVNeUSiIk5bRgZNzeP-4avvWYy0mNOS-poE8FHAo4XC6X7RJiXocVE15cHrV3WW9NmAs4=
+YAGH3dPY7F7C8XSsRn381Z8-fU_6x2kyfur18Wv6chnCesTn_4enAmq632zACGF6yWVHOi0Bekl=
+ZT6GhFeMCWIe17Dh2XUEP6eyW1kzOnNsctTk7PxR0n-OK5fsKCb3F2Nowa-fVP4WiOus4aTPi6o=
+fm2nm4ORPmMqJxi0OfbzMxqEVTUyrK5PJjOdbUgghKy6y-uYz_fd4XQP_Arwp-BwAA__9Kj9O4 =
+)
+
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+QUIZ #88
+
+Autumn in Portugal =F0=9F=8D=82
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+Let's choose the correct answer for each question.
+
+Write down your answers and then check the solutions at the
+bottom.
+
+Pergunta 1:
+What is the Portuguese word for =E2=80=9Cautumn=E2=80=9D?
+
+A) Outono
+
+B) Primavera
+
+C) Esta=C3=A7=C3=A3o
+
+Pergunta 2:
+
+What does =E2=80=9CAs folhas est=C3=A3o a cair=E2=80=9D mean?
+
+A) The flowers are growing
+
+B) The leaves are falling
+
+C) The trees are moving
+
+Pergunta 3:
+
+Which word means =E2=80=9Cchestnuts=E2=80=9D?
+
+A) Castanhas
+
+B) Nozes
+
+C) Folhas
+
+Pergunta 4:
+
+Complete the sentence: =E2=80=9CNo outono, os dias ficam mais _____.=E2=80=
+=9D
+
+A) compridos
+
+B) curtos
+
+C) quentes
+
+Pergunta 5:
+
+What is =E2=80=9Cum guarda-chuva=E2=80=9D?
+
+A) An umbrella
+
+B) A raincoat
+
+C) A scarf
+
+Pergunta 6:
+
+Which sentence is correct?
+
+A) Eu gosto das cores do outono.
+
+B) Eu gosto as cores do outono.
+
+C) Eu gosto pelas cores do outono.
+
+Pergunta 7:
+
+What does =E2=80=9CO c=C3=A9u est=C3=A1 nublado=E2=80=9D mean?
+
+A) The sky is clear
+
+B) The sky is cloudy
+
+C) The sky is dark blue
+
+Pergunta 8:
+
+How do you say =E2=80=9CI am wearing a warm jumper=E2=80=9D?
+
+A) Estou a comprar uma camisola quente.
+
+B) Estou a vestir uma camisola quente.
+
+C) Estou a usar uma camisola quente.
+
+_____________________________
+
+KEY:
+1. A - Outono
+2. B - The leaves are falling
+3. A - Castanhas
+4. B - curtos
+5. A - An umbrella
+6. A - Eu gosto das cores do outono.
+7. B - The sky is cloudy
+8. C - They preserve traditions and bring communities together.
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+If you enjoyed that=E2=80=A6 you=E2=80=99re going to LOVE this:
+
+My new book, Gato Chul=C3=A9 e Cam=C3=B5es, Novas Descobertas em Portugal:
+Portuguese Learning Stories, is now on Amazon! =F0=9F=93=9A=F0=9F=9B=92
+
+This fable book tells the adventures of Gato Chul=C3=A9 and Cam=C3=B5es as
+they travel across Portugal, discovering cities, traditions,
+food, and culture. I wrote it for children, classroom reading,
+and for Portuguese learners (B1=E2=80=93B2 level). It combines language
+practice with fun adventures and comprehension.
+
+=F0=9F=91=89 Check out the book here ( https://email.h.kajabimail.net/c/eJx=
+skL2O1DAURp8mbtBG13_JTeGCFYygoEKioIkc-2bG7MQOtrOj5enRzGQlxG7p79jH0rHrOka7kH=
+myv-wUHkpNmeacYi0Pa05-czWkyLyZO-w0Z2R4P3AOXIJitNhwHj2dwzPllzF4ozTvOXQSEHYav=
+BFcY6fEIHDfFirFHmmsLyuZ-zTlZL2zpe5XMpW0ZUfvvi_0e6N4h6_TNt1sn6-nx_9k75GTsTSQ=
+nBxwQMIZ-cDnWU1Cz6hnCcKxYASIjgMoQEAh2ll5lFZLOQAOspONglN7D3eVt5EqO5tTrWtp5Md=
+GHBpxuFwurV3snxRbl5ZGHPzaiMMjfOGo5Y9vP9lrjELRUx59WmyI5o03myebz9adaIvH_vr18c=
+ZcWlgmF9ZAsd5qKaGx11IiK6HuAVWvEVBKVs33UOnD10-NkP_Mz0b8DQAA__8tY6qb )=20
+
+(or search =E2=80=9CMiss Anita da Silva=E2=80=9D on Amazon)
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+Bom domingo! Beijinhos
+
+A tua professora de Portugu=C3=AAs =F0=9F=A7=A1
+
+Anita
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+-->
+
+Facebook ( https://email.h.kajabimail.net/c/eJxskM2O2yAURp_GbKqxLj_GeMGiVRu=
+p6z6AdQ3XMU0MLuCJ5u2rJB6p6syS78AROrhtY8SV7AV_4xReSk2Z5pxiLS9bTn53NaTIvJ210R=
+1nZHk_cA5cgmK0YriOnq7hlfLbGLxVHe85aAkGDhq8FbwzWolBmGNbqRQ801jfNrLPacoJvcNSj=
+yuZStqzo0_fF_qzU3zC92mfHrYf99O3_2SfkcXC0PcTVxomhX7ohEPkWnE1qRmIz8SCFSA0B1Bg=
+wAjRzsobiZ2UA5hBatkoWNpnuLu8jVTZ1S61bqWRXxtxasTpdru1MzqaUrq0Lq2NOG0p1_28U6F=
+bqAvGUJG9JykUPeXRpxVDtB_s2V4wX9EttMdzf__A-cFcWlkmF7ZAsT6aKdGZvpPSsBLqkVH1nQ=
+EjJav2V6j05ef3Rsh_5lcr_gYAAP__ktCvLg )
+
+Instagram ( https://email.h.kajabimail.net/c/eJxskM-O2yAQxp_GXKq1-GNjOHBo1U=
+bquQ9gjWFi043BhfFG-_ZVEq9UdXPk-zHfjH6wbWOCFd0r_IYpvlTKBc8lJ6ovW8lh9xRzYsGdt=
+dG9YOjEYIXgQvGO4QrxMga8xDcs72MMruvFILhW3PCDxuCk6I3upJXmyFasFWYc6X1D94imkiF4=
+qHR8KVjzXjw-na_4Z8f0gB_RPt3bftxe3_4re0YWp63yMA1ew8C9tUMAxUELjgbFFLxl0UkuteC=
+844YbKdtzF4yCXinLjVVaNR1f2oe4W3mbkNjFLURbbdTXRp4aebper21MlWAusLY-r408bbnQPu=
+9Y8RppgRQJGnliH1oqpoBlDHmFmNynDcW9QrmAX3BP83A7Yr4zn1dW0MctYqK7t072ZuiVMqxGO=
+lR2Q2-4UYqR-xUJv_z83kj1T_zm5N8AAAD__78rsMc )
+
+YouTube ( https://email.h.kajabimail.net/c/eJxskMtq3DAUhp9mtCkxRzdbWmiR0ga6=
+K_QBzLF1PFYzllxdMszbl7kESpOlvl_6EB_u-xhxI_eKv3EKT6WmTEtOsZanPSff5hpSZN4tvek=
+1Z-T4YDkHLkEx2jCcRk-n8Eb5MgbvlOYDh16CgccavBNcm14JK8yDbVQKHmmsl53cHU05oZ-x1M=
+eVTCW1PNOn7wv9aRTv4ztq0832_Xr6-p_ss2V1g5AWFi_AI1qDerKTl3pBA9IKOwALToDoOYACA=
+0aIblHeSNRSWjBW9vKgYO3u4a7yLlJlJ7fWupeDfD6Il4N4OZ_P3SW12ibq5rRdoYKfKdd2bFTo=
+HOr6HENF9h6lUPSUR582DNF98Gf3ivmE80otHofrF463bU4byzSHPVCst2pKaDNoKQ0roT5CqkE=
+bMFKy6n6FSl9-fDsI-Q9-c-JvAAAA__-KhK8t )
+
+Pinterest ( https://email.h.kajabimail.net/c/eJxskM2O2yAUhZ_GbKqx-DEYL1i0ai=
+N13QewbuA6phMDheup5u0rJxmparPkO3A4-qCUOcGG7hV-wjm-NMoVl5oTtZdSc9g9xZxYcIuxR=
+guGToyTEFwoPjDcIF7ngNf4hvV9jsENWoyCG8Utf6QxOCm0NYOcpH2wDVuDC870XtDd0blmCB4a=
+Pa5UbHmvHp--b_hrx3QPP9B-vrV9O05f_il7lqxOQDDqWOunCcMkzDgu3ixBIwcTULDoJJdGcD5=
+wy62U_TIEq0ArNXE7KaO6ga_9XdxR3ickdnUrUWmd-tzJUydPhfoSE2HFRr3P24Fypf2yY8PfkV=
+ZIkaCTJ_ZhpWEKWOeQN4jJ_fdBda9Qr-BX3NNlPDZcbpnPG6voY4mY6KZtkNqOWinLWqSHyWHUl=
+lulGLkfkfDT96-dVH_hNyf_BAAA___XjLA6 )
+
+LinkedIn ( https://email.h.kajabimail.net/c/eJxskM2O2yAURp_GbKqx-DEYL1i0ai1=
+13QewbuA6uY0NLuBE8_ZVfkaqOlnyHThCB7ZtirCiO8NvONBbqSnjnFOs5W3LKey-UoosuNlYow=
+VDJ_pBCC4U7xiuQMsUcKEL5veJguu06AU3ilv-pBScFNqaTg7SPrcVS4EjTvV9Q_eYDjlB8FDq8=
+0rGkvbs8eX7gn92jA_4Me2Hu-3H7fTtP9krcnJagx-UVYizxn6GfkYQBqzmZpiFBkZOcmkE5x23=
+3ErZzl2wCrRSA7eDMqrp-Kl9hLvJ24iVLe5U61Ya9bWRYyPH6_XaLhTPGCi2Pq2NHCk2coRIFQI=
+UWi4gGjmyjygFY8A8hbQCRffJn90Z8gL-hHs89rcvHO_Mp5Vl9LQRxnqv1klte62UZYXqM2TXa8=
+utUqy6X1Txy8_vjVT_zBcn_wYAAP__peGu2Q )
+
+-->
+
+-->
+
+Unsubscribe=20
+( https://email.h.kajabimail.net/c/eJxskU2O3CAUhE-DN5Fb8MAYL1gkmljKOgewMDx3=
+E9vg8DOtuX3UPxONkllSH6-kqjLHMQWzo17NLzP7NpeYcEkxlNweKbpqi4-hcXqRSnasQc36gTH=
+KOBUN7sZvk8PNv2J6m7zTomM9o5JTRZ_UOw2sU1LAAOqp7ZizOeNU3g7UD2lO0Thrcnl-SZhjTR=
+Y_vc_4u2J4wHepzne377fXt3_MPiMXPQg2UJyVXKhVdqazVY7jItQyzNIK0XgNFCSjVFBFFcBpE=
+U5x03E-UDVwyYmgl9OjuJv5KWBpNn0p5ciEfyUwEhiv1-vpiKnUc8WMV18uJvhiTjbuBEYbQzG2=
+ZAIjCOhU33GuCIy5ztkmf9zKJ3x03hH-8qFcAjKv_pjs5u06lWTs6sOZ8JeSKhKQtd4vgLkOqeh=
+bQxfRCmC8HSiK1i2OOeUEN4tt3tfIGBymycXd-KD_C5b0atJm7AVrOPe37Oc7s3FvElp_eAzlPt=
+ffIE325bmg6DtFFedN0T99wS8_XgjwD_Krhj8BAAD__5MG1As )
+ | Sent by Portuguese With Anita
+
+Avenue =E2=80=A2 Lisbon, Lisbon =E2=80=A2  1100053
+--f712499bf79d1d2f5cea3224d96e975664ad15206c481b028b9c156efbb1
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html lang=3D"en">
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <title></title>
+   =20
+    <style>=20
+      .hd {
+        font-size: 0;
+        line-height: 0;
+        display: none;
+        max-height: 0;
+        mso-hide: all;
+      }
+      @media (max-width: 639px) {
+        .hd {
+          font-size: initial !important;
+          line-height: initial !important;
+          display: table !important;
+          max-height: initial !important;
+        }
+        .hm {
+          display: none !important;
+        }
+      }
+    </style>
+    <style type=3D"text/css">
+body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}tab=
+le,td{mso-table-lspace:0;mso-table-rspace:0}table{border-collapse:collapse =
+!important}body{font-family:'Open Sans',sans-serif;line-height:1.7;width:10=
+0% !important;margin:0 !important;padding:0 !important;color:#000000}h1,h2,=
+h3,h4,h5,h6{font-family:'Fira Sans',sans-serif;font-weight:bold;line-height=
+:1.2;color:#000000}h1,h2,h3,h4,h5,h6,p,ul,ol{margin:10px 0}p{font-size:16px=
+;font-weight:normal}h1{font-size:36px !important}h2{font-size:30px !importa=
+nt}h3{font-size:24px !important}h4{font-size:18px !important}h5{font-size:1=
+4px !important}h6{font-size:12px !important}@media all and (max-width: 639p=
+x){p{font-size:16px !important}h1{font-size:30px !important}h2{font-size:24=
+px !important}h3{font-size:20px !important}h4{font-size:18px !important}h5{=
+font-size:14px !important}h6{font-size:12px !important}}@media all and (max=
+-width: 639px){.wr{width:100% !important;padding:0 !important}.cn{width:100=
+% !important;height:auto !important}.bi{width:100% !important;height:auto !=
+important}.tb img{width:100% !important;height:auto !important}.bm{display:=
+block !important;width:100% !important}.bm img{width:100% !important;height=
+:auto !important}.tm{line-height:1.7 !important}}img{text-decoration:none;-=
+ms-interpolation-mode:bicubic;border:0;outline:none}@media all and (max-wid=
+th: 639px){.sig{display:inline-block !important;height:0 !important}.sii{di=
+splay:inline-block !important;padding-bottom:10px !important}}@media all an=
+d (max-width: 639px){.video{width:100% !important;min-width:auto !important=
+;height:auto !important}}a[x-apple-data-detectors]{font-family:inherit !imp=
+ortant;font-size:inherit !important;font-weight:inherit !important;line-hei=
+ght:inherit !important;text-decoration:none !important;color:inherit !impor=
+tant}div[style*=3D"margin: 16px 0;"]{margin:0 !important}
+
+</style>
+   =20
+<style type=3D"text/css">
+  #editor-overlay {
+    display: none;
+    border-color: #2E91FC;
+    position: absolute;
+    background-color: rgba(46,145,252,0.05);
+    border-style: dashed;
+    border-width: 3px;
+    border-radius: 3px;
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 10000000000;
+  }
+  .editor-overlay-button {
+    color: white;
+    background: #2E91FC;
+    border-radius: 2px;
+    font-size: 13px;
+    margin-inline-start: -24px;
+    margin-block-start: -12px;
+    padding-block: 3px;
+    padding-inline: 10px;
+    text-transform:uppercase;
+    font-weight:bold;
+    letter-spacing:1.5px;
+
+    left: 50%;
+    top: 50%;
+    position: absolute;
+  }
+</style>
+
+
+  </head>
+  <body
+    style=3D"background-color: #f7f8f9; font-family:  sans-serif; color: #0=
+00000; width: 100% !important; height: 100% !important; -webkit-text-size-a=
+djust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0;"
+  ><div class=3D"preheader" style=3D"color: transparent; display: none; hei=
+ght: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide=
+: all; visibility: hidden; width: 0;">Autumn in Portugal =F0=9F=8D=82&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+   =20
+  <style type=3D"text/css">
+    h1, h2, h3, h4, h5, h6 {
+      font-family: sans-serif !important;
+    }
+  </style>
+
+
+
+
+<!--[if mso]>
+  <style type=3D"text/css">
+   =20
+      body, table, td { font-family: Arial, Helvetica, sans-serif !importan=
+t; }
+   =20
+   =20
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Arial, Helvetica, sans-serif !important;
+        mso-line-height-rule: exactly;
+        line-height: 96% !important;
+      }
+   =20
+  </style>
+<![endif]-->
+
+    <table
+      border=3D"0"
+      cellpadding=3D"0"
+      cellspacing=3D"0"
+      role=3D"presentation"
+      style=3D"background-color: #f7f8f9;"
+      width=3D"100%"
+      valign=3D"top"
+    >
+      <tr>
+        <td
+          align=3D"center"
+          valign=3D"top"
+        >
+         =20
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    .viwb .st {
+      height: 15px !important;
+    }
+    .viwb .st img {
+      height: 15px !important;
+    }
+    .viwb .sb {
+      height: 15px !important;
+    }
+    .viwb .sb img {
+      height: 15px !important;
+    }
+    .viwb .sl {
+      width: 20px !important;
+    }
+    .viwb .sl img {
+      width: 20px !important;
+    }
+    .viwb .sr {
+      width: 20px !important;
+    }
+    .viwb .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"wr viwb "
+  role=3D"presentation"
+  style=3D"background-color: #f7f8f9; color: #555555; font-size: 12px; "
+  width=3D"640"
+  valign=3D"top"
+>
+  <tr>
+    <td
+      align=3D"center"
+      class=3D"st"
+      height=3D"20"
+      valign=3D"top"
+    >
+      <img
+        alt=3D""
+        border=3D"0"
+        height=3D"20"
+        src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+        style=3D"display: block; outline: none; text-decoration: none;"
+        width=3D"1"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table
+        border=3D"0"
+        cellpadding=3D"0"
+        cellspacing=3D"0"
+        role=3D"presentation"
+        width=3D"100%"
+        valign=3D"top"
+      >
+        <tr>
+          <td
+            align=3D"center"
+            class=3D"sl"
+            width=3D"40"
+            valign=3D"middle"
+          >
+            <img
+              alt=3D""
+              border=3D"0"
+              width=3D"40"
+              src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+              style=3D"display: block; outline: none; text-decoration: none=
+;"
+              height=3D"1"
+            />
+          </td>
+          <td
+            width=3D""
+            align=3D"center"
+          >
+            <table
+              class=3D"cn"
+              role=3D"presentation"
+              width=3D""
+              align=3D"center"
+            >
+              <tr>
+                <td
+                  align=3D"center"
+                  style=3D"font-family:  sans-serif; font-size: 12px;"
+                  valign=3D"top"
+                >
+                  <a
+                    href=3D"https://email.h.kajabimail.net/c/eJxskc2O2ywYha=
+_G3nxKhF8whgWLyZdJVXXXSk2VjYXhtc3EBhfwpHP3VX5GqtpZ8jxwpMPRy9J6PaM66xfduU3KI=
+WIfg89ps8RgV5Nd8KVVPRe8rkpUVSOrilSUsBJn7abW4uReMb61zipWV01FOCWCPKyzCqpacAYS=
+xIPNmJIesM1vC6o76mLQ1uiUH1ciprBGgx--T_hzRX-X72jtbmnP19Pur7CPzKi4BLCdNVI2jNc=
+InbS8lqgJMq2Z7EungACvCGFEEAGw7ZkVVNeUSiIk5bRgZNzeP-4avvWYy0mNOS-poE8FHAo4XC=
+6X7RJiXocVE15cHrV3WW9NmAs4YAGH3dPY7F7C8XSsRn381Z8-fU_6x2kyfur18Wv6chnCesTn_=
+4enAmq632zACGF6yWVHOi0BeklZT6GhFeMCWIe17Dh2XUEP6eyW1kzOnNsctTk7PxR0n-OK5fsK=
+Cb3F2Nowa-fVP4WiOus4aTPi6ofm2nm4ORPmMqJxi0OfbzMxqEVTUyrK5PJjOdbUgghKy6y-uYz=
+_fd4XQP_Arwp-BwAA__9Kj9O4"
+                    style=3D"color: #555555;  font-size: 12px; line-height:=
+ 1;"
+                  >View in Web Browser</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td
+            align=3D"center"
+            class=3D"sr"
+            width=3D"40"
+            valign=3D"middle"
+          >
+            <img
+              alt=3D""
+              border=3D"0"
+              width=3D"40"
+              src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+              style=3D"display: block; outline: none; text-decoration: none=
+;"
+              height=3D"1"
+            />
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td
+      align=3D"center"
+      class=3D"sb"
+      height=3D"20"
+      valign=3D"top"
+    >
+      <img
+        alt=3D""
+        border=3D"0"
+        height=3D"20"
+        src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+        style=3D"display: block; outline: none; text-decoration: none;"
+        width=3D"1"
+      />
+    </td>
+  </tr>
+</table>
+
+          <div data-content-for-index data-dynamic-sections=3D"index"><div =
+id=3D"section-1576616261664" data-section-id=3D"1576616261664">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-1576616261664 .st {
+      height: 0px !important;
+    }
+    #section-1576616261664 .st img {
+      height: 0px !important;
+    }
+    #section-1576616261664 .sb {
+      height: 0px !important;
+    }
+    #section-1576616261664 .sb img {
+      height: 0px !important;
+    }
+    #section-1576616261664 .sl {
+      width: 20px !important;
+    }
+    #section-1576616261664 .sl img {
+      width: 20px !important;
+    }
+    #section-1576616261664 .sr {
+      width: 20px !important;
+    }
+    #section-1576616261664 .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<!--[if !mso]>-->
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1576616261664_settings_background"
+    role=3D"presentation"
+    style=3D"max-width:640px;background-color: #ffffff; "
+    valign=3D"top"
+    width=3D"100%"
+  >
+<!--<![endif]-->
+<!--[if mso]>
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1576616261664_settings_background"
+    style=3D"background-color: #ffffff; "
+    valign=3D"top"
+  >
+<![endif]-->
+ =20
+  <!--[if !mso]>-->
+ =20
+  <!--<![endif]-->
+  <tr>
+    <td
+      align=3D"center"
+      style=3D"font-family:  sans-serif;"
+      valign=3D"top"
+    >
+      <!--[if !mso]>-->
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          role=3D"presentation"
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <!--<![endif]-->
+      <!--[if mso]>
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          style=3D""
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <![endif]-->
+        <tr>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sl hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sl hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+          <td
+            class=3D"cn"
+            width=3D"560"
+          >
+           =20
+                <table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"cn "
+  role=3D"presentation"
+  style=3D""
+  valign=3D"top"
+  width=3D"100%"
+>
+  <tr>
+    <!--[if !mso]>-->
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1576616261664_settings_body"
+        style=3D"line-height: 1.7; color: #000000; "
+        valign=3D"top"
+      >
+    <!--<![endif]-->
+    <!--[if mso]>
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1576616261664_settings_body"
+        style=3D"mso-line-height-rule: exactly; line-height: 136%; color: #=
+000000; "
+        valign=3D"top"
+      >
+    <![endif]-->
+      <p align=3D"center" style=3D"color: #000000; font-family: sans-serif;=
+ margin: 10px 0px;"><span style=3D"font-size: 21px;"><strong>QUIZ #88</stro=
+ng></span></p>
+<p align=3D"center" style=3D"color: #000000; font-family: sans-serif; margi=
+n: 10px 0px;"><span face=3D"Arial, sans-serif" style=3D"font-family: Arial,=
+ sans-serif;"><span style=3D"font-size: 18.6667px; white-space-collapse: pr=
+eserve;"><b>Autumn in Portugal =F0=9F=8D=82 </b></span></span></p>
+    </td>
+  </tr>
+</table>
+
+             =20
+          </td>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sr hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sr hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+  <!--<![endif]-->
+</table>
+
+
+</div><div id=3D"section-1580167002713" data-section-id=3D"1580167002713">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-1580167002713 .st {
+      height: 15px !important;
+    }
+    #section-1580167002713 .st img {
+      height: 15px !important;
+    }
+    #section-1580167002713 .sb {
+      height: 15px !important;
+    }
+    #section-1580167002713 .sb img {
+      height: 15px !important;
+    }
+    #section-1580167002713 .sl {
+      width: 20px !important;
+    }
+    #section-1580167002713 .sl img {
+      width: 20px !important;
+    }
+    #section-1580167002713 .sr {
+      width: 20px !important;
+    }
+    #section-1580167002713 .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<!--[if !mso]>-->
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1580167002713_settings_background"
+    role=3D"presentation"
+    style=3D"max-width:640px;background-color: #ffffff; "
+    valign=3D"top"
+    width=3D"100%"
+  >
+<!--<![endif]-->
+<!--[if mso]>
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1580167002713_settings_background"
+    style=3D"background-color: #ffffff; "
+    valign=3D"top"
+  >
+<![endif]-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"20"
+        valign=3D"top"
+        class=3D"st hm"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"20"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"15"
+        valign=3D"top"
+        class=3D"st hd"
+        style=3D"font-size: 0; line-height: 0; display: none; max-height: 0=
+; mso-hide: all;"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"15"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--<![endif]-->
+  <tr>
+    <td
+      align=3D"center"
+      style=3D"font-family:  sans-serif;"
+      valign=3D"top"
+    >
+      <!--[if !mso]>-->
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          role=3D"presentation"
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <!--<![endif]-->
+      <!--[if mso]>
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          style=3D""
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <![endif]-->
+        <tr>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sl hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sl hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+          <td
+            class=3D"cn"
+            width=3D"560"
+          >
+           =20
+               =20
+
+
+
+<table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"cn "
+  role=3D"presentation"
+  style=3D""
+  valign=3D"top"
+  width=3D"100%"
+>
+  <tr>
+    <td
+      align=3D"center"
+      valign=3D"top"
+    >
+     =20
+        <a href=3D"https://email.h.kajabimail.net/c/eJxskM2O2yAURp_GbKpEcPk=
+xWbBo1Ubqug9gXcN1QscGF3CkvH2VxCNVnVnyHThIB9d1SLiQe8PfOMZDbbnQVHJq9bCWHDbfYk=
+4suMlYowUjJ_qTEFxIrhgtGOch0BxvVO5DDE5p0QtuJLd8pzE4ENoaBSew-7ZQrXihod1Xcq9pL=
+BmDx9r2K4Vq3oqnT99X-rNResH3aRufth-P07f_ZJ-Rq5sMjMoEUJrGoJQXQJLQGxWMHflkWXTA=
+wQjOFbfcAhwnFaxELeWJ25M0slP8enyFe8iPiRqb3bW1tXbyawfnDs5jbMf53sEZU2x4yDcqlbA=
+e6rYssbH3FJVSoDKEvGBM7oO1uDcsM_orbenSPz6-PJnPCyvk4xoptWcrBdr2WkrLamx7PtVry6=
+2UrLlfsdGXn987kP_MNwd_AwAA__8GaKwG">
+          <img
+            alt=3D""
+            border=3D"0"
+            class=3D"img bi"
+            height=3D""
+            kjb-settings-id=3D"sections_1580167002713_settings_image"
+             =20
+                src=3D"https://kajabi-storefronts-production.kajabi-cdn.com=
+/kajabi-storefronts-production/file-uploads/sites/2147580833/images/a7777fb=
+-a7-dae8-70bd-35ff28ac01b_Portuguese_with_Anita_-_Quiz_1_.png"
+             =20
+            style=3D"padding: 0; border: none; display: block; outline: non=
+e; text-decoration: none;"
+            width=3D"560"
+          />
+        </a>
+     =20
+    </td>
+  </tr>
+</table>
+
+             =20
+          </td>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sr hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sr hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"20"
+        valign=3D"top"
+        class=3D"sb hm"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"20"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"15"
+        valign=3D"top"
+        class=3D"sb hd"
+        style=3D"font-size: 0; line-height: 0; display: none; max-height: 0=
+; mso-hide: all;"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"15"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--<![endif]-->
+</table>
+
+
+</div><div id=3D"section-1580167045234" data-section-id=3D"1580167045234">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-1580167045234 .st {
+      height: 0px !important;
+    }
+    #section-1580167045234 .st img {
+      height: 0px !important;
+    }
+    #section-1580167045234 .sb {
+      height: 0px !important;
+    }
+    #section-1580167045234 .sb img {
+      height: 0px !important;
+    }
+    #section-1580167045234 .sl {
+      width: 20px !important;
+    }
+    #section-1580167045234 .sl img {
+      width: 20px !important;
+    }
+    #section-1580167045234 .sr {
+      width: 20px !important;
+    }
+    #section-1580167045234 .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<!--[if !mso]>-->
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1580167045234_settings_background"
+    role=3D"presentation"
+    style=3D"max-width:640px;background-color: #ffffff; "
+    valign=3D"top"
+    width=3D"100%"
+  >
+<!--<![endif]-->
+<!--[if mso]>
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1580167045234_settings_background"
+    style=3D"background-color: #ffffff; "
+    valign=3D"top"
+  >
+<![endif]-->
+ =20
+  <!--[if !mso]>-->
+ =20
+  <!--<![endif]-->
+  <tr>
+    <td
+      align=3D"center"
+      style=3D"font-family:  sans-serif;"
+      valign=3D"top"
+    >
+      <!--[if !mso]>-->
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          role=3D"presentation"
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <!--<![endif]-->
+      <!--[if mso]>
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          style=3D""
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <![endif]-->
+        <tr>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sl hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sl hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+          <td
+            class=3D"cn"
+            width=3D"560"
+          >
+           =20
+                <table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"cn "
+  role=3D"presentation"
+  style=3D""
+  valign=3D"top"
+  width=3D"100%"
+>
+  <tr>
+    <!--[if !mso]>-->
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1580167045234_settings_body"
+        style=3D"line-height: 1.7; color: #000000; "
+        valign=3D"top"
+      >
+    <!--<![endif]-->
+    <!--[if mso]>
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1580167045234_settings_body"
+        style=3D"mso-line-height-rule: exactly; line-height: 136%; color: #=
+000000; "
+        valign=3D"top"
+      >
+    <![endif]-->
+      <p style=3D"color: #000000; font-family: sans-serif; margin: 10px 0px=
+; text-align: center;"><span style=3D"color: #080808; font-size: 18px;"><st=
+rong>Let's choose=C2=A0the correct=C2=A0answer for each question.</strong><=
+/span></p>
+<p style=3D"margin: 10px 0px; text-align: center;"><span style=3D"font-size=
+: 14px; color: #080808;"><strong><span color=3D"#005b27" face=3D"sans-serif=
+" style=3D"font-family: sans-serif;">Write down your answers and then check=
+ the=C2=A0solutions=C2=A0at the bottom.</span></strong></span></p>
+<p style=3D"margin: 10px 0px; text-align: center;">=C2=A0</p>
+<p style=3D"color: #000000; font-family: sans-serif; margin: 10px 0px;">=C2=
+=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #065903;">Pergunta 1:</span><span style=3D"font-family: Arial, sans-seri=
+f; background-color: transparent; font-weight: bold; font-variant: normal; =
+vertical-align: baseline; white-space: pre-wrap;"><br /></span></span><span=
+ face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-serif;"><span=
+ style=3D"font-size: 14px; white-space-collapse: preserve;"><b>What is the =
+Portuguese word for =E2=80=9Cautumn=E2=80=9D</b></span></span><b style=3D"f=
+ont-size: 14px; white-space-collapse: preserve; font-family: Arial, sans-se=
+rif;">?</b></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A) Outono</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) Primavera</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) Esta=C3=A7=C3=A3o</span></span>=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;">=C2=A0</span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"color: =
+#f20406;"><span style=3D"font-family: Arial, sans-serif; background-color: =
+transparent; font-weight: bold; font-variant: normal; vertical-align: basel=
+ine; white-space: pre-wrap;">Pergunta 2:</span><span style=3D"font-family: =
+Arial, sans-serif; background-color: transparent; font-weight: bold; font-v=
+ariant: normal; vertical-align: baseline; white-space: pre-wrap;"><br /></s=
+pan></span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-se=
+rif;"><span style=3D"font-size: 14.6667px; white-space-collapse: preserve;"=
+><b>What does =E2=80=9CAs folhas est=C3=A3o a cair=E2=80=9D mean</b></span>=
+</span><b style=3D"font-size: 14.6667px; white-space-collapse: preserve; fo=
+nt-family: Arial, sans-serif;">?</b></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A) The flowers are growing</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) The leaves are falling</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) The trees are moving</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #f1c40f;">Pergunta 3:</span><span style=3D"font-family: Arial, sans-seri=
+f; background-color: transparent; font-weight: bold; font-variant: normal; =
+vertical-align: baseline; white-space: pre-wrap;"><br /></span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span style=3D"font-size: 11pt; font-family: Arial, sans-serif; backg=
+round-color: transparent; font-weight: bold; font-variant: normal; vertical=
+-align: baseline; white-space: pre-wrap;">Which word means =E2=80=9Cchestnu=
+ts=E2=80=9D?</span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A</span></span><span face=3D"Arial, sans-serif" style=3D"font-fam=
+ily: Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collap=
+se: preserve;">) Castanhas</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) Nozes</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) Folhas</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #065903;">Pergunta 4:</span><span style=3D"font-family: Arial, sans-seri=
+f; background-color: transparent; font-weight: bold; font-variant: normal; =
+vertical-align: baseline; white-space: pre-wrap;"><br /></span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-se=
+rif;"><span style=3D"font-size: 14.6667px; white-space-collapse: preserve;"=
+><b>Complete the sentence: =E2=80=9CNo outono, os dias ficam mais _____.=E2=
+=80=9D</b></span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A</span></span><span face=3D"Arial, sans-serif" style=3D"font-fam=
+ily: Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collap=
+se: preserve;">) compridos</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) curtos</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) quentes</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #f20406;">Pergunta 5:</span><span style=3D"font-family: Arial, sans-seri=
+f; background-color: transparent; font-weight: bold; font-variant: normal; =
+vertical-align: baseline; white-space: pre-wrap;"><br /></span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span style=3D"font-size: 11pt; font-family: Arial, sans-serif; backg=
+round-color: transparent; font-weight: bold; font-variant: normal; vertical=
+-align: baseline; white-space: pre-wrap;">What is =E2=80=9Cum guarda-chuva=
+=E2=80=9D?</span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A) An umbrella</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) A raincoat</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) A scarf</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #f1c40f;">Pergunta 6:</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-se=
+rif;"><span style=3D"font-size: 14.6667px; white-space-collapse: preserve;"=
+><b>Which sentence is correct?</b></span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;">=C2=A0</span><span face=3D"Arial, sans-serif" style=3D"=
+font-family: Arial, sans-serif;"><span style=3D"font-size: 14px; white-spac=
+e-collapse: preserve;">A) Eu gosto das cores do outono.</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) Eu gosto as cores do outono.</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) Eu gosto pelas cores do outono.</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #065903;">Pergunta 7:</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-se=
+rif;"><span style=3D"font-size: 14.6667px; white-space-collapse: preserve;"=
+><b>What does =E2=80=9CO c=C3=A9u est=C3=A1 nublado=E2=80=9D mean</b></span=
+></span><b style=3D"font-size: 14.6667px; white-space-collapse: preserve; f=
+ont-family: Arial, sans-serif;">?</b></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A) The sky is clear</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) The sky is cloudy</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) The sky is dark blue</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span style=3D"font-size: 14px;"><span style=3D"font-fa=
+mily: Arial, sans-serif; background-color: transparent; font-weight: bold; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap; colo=
+r: #f20406;">Pergunta 8:</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 0pt; margin-bottom: =
+0pt;"><span style=3D"font-size: 11pt; font-family: Arial, sans-serif; backg=
+round-color: transparent; font-weight: bold; font-variant: normal; vertical=
+-align: baseline; white-space: pre-wrap;">How do you say =E2=80=9CI am wear=
+ing a warm jumper=E2=80=9D?</span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">A) Estou a comprar uma camisola quente.</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">B) Estou a vestir uma camisola quente.</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;"><span face=3D"Arial, sans-serif" style=3D"font-family: =
+Arial, sans-serif;"><span style=3D"font-size: 14px; white-space-collapse: p=
+reserve;">C) Estou a usar uma camisola quente.</span></span></p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">=C2=A0</p>
+<p dir=3D"ltr" style=3D"line-height: 1.7999999999999998; margin-top: 0pt; m=
+argin-bottom: 0pt;">_____________________________</p>
+<p dir=3D"ltr" style=3D"line-height: 1.38; margin-top: 12pt; margin-bottom:=
+ 12pt;"><span style=3D"font-size: 14px;"><span style=3D"font-family: Arial,=
+ sans-serif; background-color: transparent; font-weight: bold; font-variant=
+: normal; vertical-align: baseline; white-space: pre-wrap;">KEY:</span><spa=
+n style=3D"font-family: Arial, sans-serif; background-color: transparent; f=
+ont-weight: bold; font-variant: normal; vertical-align: baseline; white-spa=
+ce: pre-wrap;"><br /></span><span style=3D"font-family: Arial, sans-serif; =
+background-color: transparent; font-variant: normal; vertical-align: baseli=
+ne; white-space: pre-wrap;">1. </span><span face=3D"Arial, sans-serif" styl=
+e=3D"font-family: Arial, sans-serif;"><span style=3D"font-size: 14px; white=
+-space-collapse: preserve;">A - Outono</span></span></span><span style=3D"f=
+ont-size: 14px;"><span style=3D"font-family: Arial, sans-serif; background-=
+color: transparent; font-variant: normal; vertical-align: baseline; white-s=
+pace: pre-wrap;"><span face=3D"Arial, sans-serif" style=3D"font-family: Ari=
+al, sans-serif;"><br /></span></span><span style=3D"font-family: Arial, san=
+s-serif; background-color: transparent; font-variant: normal; vertical-alig=
+n: baseline; white-space: pre-wrap;">2. </span><span face=3D"Arial, sans-se=
+rif" style=3D"font-family: Arial, sans-serif;"><span style=3D"font-size: 14=
+px; white-space-collapse: preserve;">B - The leaves are falling</span></spa=
+n></span><span style=3D"font-size: 14px;"><span style=3D"font-family: Arial=
+, sans-serif; background-color: transparent; font-variant: normal; vertical=
+-align: baseline; white-space: pre-wrap;"><span face=3D"Arial, sans-serif" =
+style=3D"font-family: Arial, sans-serif;"><br /></span></span><span style=
+=3D"font-family: Arial, sans-serif; background-color: transparent; font-var=
+iant: normal; vertical-align: baseline; white-space: pre-wrap;">3. A - Cast=
+anhas</span><span style=3D"font-family: Arial, sans-serif; background-color=
+: transparent; font-variant: normal; vertical-align: baseline; white-space:=
+ pre-wrap;"><br /></span><span style=3D"font-family: Arial, sans-serif; bac=
+kground-color: transparent; font-variant: normal; vertical-align: baseline;=
+ white-space: pre-wrap;">4. B - </span><span face=3D"Arial, sans-serif" sty=
+le=3D"font-family: Arial, sans-serif;"><span style=3D"font-size: 14px; whit=
+e-space-collapse: preserve;">curtos</span></span><span style=3D"font-family=
+: Arial, sans-serif; background-color: transparent; font-variant: normal; v=
+ertical-align: baseline; white-space: pre-wrap;"><br /></span><span style=
+=3D"font-family: Arial, sans-serif; background-color: transparent; font-var=
+iant: normal; vertical-align: baseline; white-space: pre-wrap;">5. </span><=
+span face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-serif;"><=
+span style=3D"font-size: 14px; white-space-collapse: preserve;"><span face=
+=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-serif;"><span styl=
+e=3D"font-size: 14px; white-space-collapse: preserve;">A - An umbrella=C2=
+=A0</span></span></span></span></span><span style=3D"font-size: 14px;"><spa=
+n style=3D"font-family: Arial, sans-serif; background-color: transparent; f=
+ont-variant: normal; vertical-align: baseline; white-space: pre-wrap;"><spa=
+n face=3D"Arial, sans-serif" style=3D"font-family: Arial, sans-serif;"><br =
+/></span></span><span style=3D"font-family: Arial, sans-serif; background-c=
+olor: transparent; font-variant: normal; vertical-align: baseline; white-sp=
+ace: pre-wrap;">6. </span></span><span face=3D"Arial, sans-serif" style=3D"=
+font-family: Arial, sans-serif;"><span style=3D"font-size: 14px; white-spac=
+e-collapse: preserve;">A - Eu gosto das cores do outono.</span></span><span=
+ style=3D"font-size: 14px;"><span style=3D"font-family: Arial, sans-serif; =
+background-color: transparent; font-variant: normal; vertical-align: baseli=
+ne; white-space: pre-wrap;"><br /></span><span style=3D"font-family: Arial,=
+ sans-serif; background-color: transparent; font-variant: normal; vertical-=
+align: baseline; white-space: pre-wrap;">7. B - The sky is cloudy</span><sp=
+an style=3D"font-family: Arial, sans-serif; background-color: transparent; =
+font-variant: normal; vertical-align: baseline; white-space: pre-wrap;"><br=
+ /></span><span style=3D"font-family: Arial, sans-serif; background-color: =
+transparent; font-variant: normal; vertical-align: baseline; white-space: p=
+re-wrap;">8. C - They preserve traditions and bring communities together.</=
+span></span></p>
+<p style=3D"color: #000000; font-family: sans-serif; margin: 10px 0px;">=C2=
+=A0</p>
+    </td>
+  </tr>
+</table>
+
+             =20
+          </td>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sr hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sr hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+  <!--<![endif]-->
+</table>
+
+
+</div><div id=3D"section-1580167117764" data-section-id=3D"1580167117764">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-1580167117764 .st {
+      height: 0px !important;
+    }
+    #section-1580167117764 .st img {
+      height: 0px !important;
+    }
+    #section-1580167117764 .sb {
+      height: 0px !important;
+    }
+    #section-1580167117764 .sb img {
+      height: 0px !important;
+    }
+    #section-1580167117764 .sl {
+      width: 20px !important;
+    }
+    #section-1580167117764 .sl img {
+      width: 20px !important;
+    }
+    #section-1580167117764 .sr {
+      width: 20px !important;
+    }
+    #section-1580167117764 .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<!--[if !mso]>-->
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1580167117764_settings_background"
+    role=3D"presentation"
+    style=3D"max-width:640px;background-color: #ffffff; "
+    valign=3D"top"
+    width=3D"100%"
+  >
+<!--<![endif]-->
+<!--[if mso]>
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1580167117764_settings_background"
+    style=3D"background-color: #ffffff; "
+    valign=3D"top"
+  >
+<![endif]-->
+ =20
+  <!--[if !mso]>-->
+ =20
+  <!--<![endif]-->
+  <tr>
+    <td
+      align=3D"center"
+      style=3D"font-family:  sans-serif;"
+      valign=3D"top"
+    >
+      <!--[if !mso]>-->
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          role=3D"presentation"
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <!--<![endif]-->
+      <!--[if mso]>
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          style=3D""
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <![endif]-->
+        <tr>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sl hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sl hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+          <td
+            class=3D"cn"
+            width=3D"560"
+          >
+           =20
+                <table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"cn "
+  role=3D"presentation"
+  style=3D""
+  valign=3D"top"
+  width=3D"100%"
+>
+  <tr>
+    <!--[if !mso]>-->
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1580167117764_settings_body"
+        style=3D"line-height: 1.7; color: #000000; "
+        valign=3D"top"
+      >
+    <!--<![endif]-->
+    <!--[if mso]>
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1580167117764_settings_body"
+        style=3D"mso-line-height-rule: exactly; line-height: 136%; color: #=
+000000; "
+        valign=3D"top"
+      >
+    <![endif]-->
+      <p data-start=3D"1009" data-end=3D"1060" class=3D"" style=3D"caret-co=
+lor: #000000; color: #000000;"><span style=3D"font-size: 14px;"><strong dat=
+a-start=3D"1009" data-end=3D"1060">If you enjoyed that=E2=80=A6 you=E2=80=
+=99re going to LOVE this:</strong></span></p>
+<p data-start=3D"1009" data-end=3D"1060" class=3D"" style=3D"caret-color: #=
+000000; color: #000000;"><span style=3D"font-size: 14px;">My new book,=C2=
+=A0<strong>Gato Chul=C3=A9 e Cam=C3=B5es, Novas Descobertas em Portugal: Po=
+rtuguese Learning Stories,=C2=A0</strong>is now=C2=A0on Amazon! =F0=9F=93=
+=9A=F0=9F=9B=92</span></p>
+<p data-start=3D"1062" data-end=3D"1310" class=3D"" style=3D"caret-color: #=
+000000; color: #000000;"><br data-start=3D"1130" data-end=3D"1133" /><span =
+style=3D"font-size: 14px;">This fable book tells the <strong>adventures of =
+Gato Chul=C3=A9 and Cam=C3=B5es as they travel across Portugal</strong>, di=
+scovering cities, traditions, food, and culture. I wrote it for children, c=
+lassroom reading, and for Portuguese learners (<strong>B1=E2=80=93B2 level<=
+/strong>). It combines language practice with fun adventures and comprehens=
+ion.=C2=A0</span></p>
+<p data-start=3D"1062" data-end=3D"1310" class=3D"" style=3D"caret-color: #=
+000000; color: #000000;"><span style=3D"font-size: 14px;">=F0=9F=91=89 <spa=
+n style=3D"color: #2980b9;"><a href=3D"https://email.h.kajabimail.net/c/eJx=
+skL2O1DAURp8mbtBG13_JTeGCFYygoEKioIkc-2bG7MQOtrOj5enRzGQlxG7p79jH0rHrOka7kH=
+myv-wUHkpNmeacYi0Pa05-czWkyLyZO-w0Z2R4P3AOXIJitNhwHj2dwzPllzF4ozTvOXQSEHYav=
+BFcY6fEIHDfFirFHmmsLyuZ-zTlZL2zpe5XMpW0ZUfvvi_0e6N4h6_TNt1sn6-nx_9k75GTsTSQ=
+nBxwQMIZ-cDnWU1Cz6hnCcKxYASIjgMoQEAh2ll5lFZLOQAOspONglN7D3eVt5EqO5tTrWtp5Md=
+GHBpxuFwurV3snxRbl5ZGHPzaiMMjfOGo5Y9vP9lrjELRUx59WmyI5o03myebz9adaIvH_vr18c=
+ZcWlgmF9ZAsd5qKaGx11IiK6HuAVWvEVBKVs33UOnD10-NkP_Mz0b8DQAA__8tY6qb" title=
+=3D"Gato Chul=C3=A9 e Cam=C3=B5es, Novas Descobertas em Portugal: Portugues=
+e Learning Stories by Miss Anita" style=3D"color: #2980b9;">Check out the b=
+ook here=C2=A0</a></span></span></p>
+<p data-start=3D"1062" data-end=3D"1310" class=3D"" style=3D"caret-color: #=
+000000; color: #000000;"><span style=3D"font-size: 14px;">(or search =E2=80=
+=9CMiss Anita da Silva=E2=80=9D on Amazon)</span></p>
+<p data-start=3D"1062" data-end=3D"1310" class=3D"" style=3D"caret-color: #=
+000000; color: #000000;"><span style=3D"font-size: 14px;">=C2=A0</span></p>
+    </td>
+  </tr>
+</table>
+
+             =20
+          </td>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sr hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sr hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+  <!--<![endif]-->
+</table>
+
+
+</div><div id=3D"section-1754401699926" data-section-id=3D"1754401699926">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-1754401699926 .st {
+      height: 15px !important;
+    }
+    #section-1754401699926 .st img {
+      height: 15px !important;
+    }
+    #section-1754401699926 .sb {
+      height: 15px !important;
+    }
+    #section-1754401699926 .sb img {
+      height: 15px !important;
+    }
+    #section-1754401699926 .sl {
+      width: 20px !important;
+    }
+    #section-1754401699926 .sl img {
+      width: 20px !important;
+    }
+    #section-1754401699926 .sr {
+      width: 20px !important;
+    }
+    #section-1754401699926 .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<!--[if !mso]>-->
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1754401699926_settings_background"
+    role=3D"presentation"
+    style=3D"max-width:640px;background-color: #ffffff; "
+    valign=3D"top"
+    width=3D"100%"
+  >
+<!--<![endif]-->
+<!--[if mso]>
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1754401699926_settings_background"
+    style=3D"background-color: #ffffff; "
+    valign=3D"top"
+  >
+<![endif]-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"20"
+        valign=3D"top"
+        class=3D"st hm"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"20"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"15"
+        valign=3D"top"
+        class=3D"st hd"
+        style=3D"font-size: 0; line-height: 0; display: none; max-height: 0=
+; mso-hide: all;"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"15"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--<![endif]-->
+  <tr>
+    <td
+      align=3D"center"
+      style=3D"font-family:  sans-serif;"
+      valign=3D"top"
+    >
+      <!--[if !mso]>-->
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          role=3D"presentation"
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <!--<![endif]-->
+      <!--[if mso]>
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          style=3D""
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <![endif]-->
+        <tr>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sl hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sl hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+          <td
+            class=3D"cn"
+            width=3D"560"
+          >
+           =20
+                <table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"cn "
+  role=3D"presentation"
+  style=3D""
+  valign=3D"top"
+  width=3D"100%"
+>
+  <tr>
+    <!--[if !mso]>-->
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1754401699926_settings_body"
+        style=3D"line-height: 1.7; color: #000000; "
+        valign=3D"top"
+      >
+    <!--<![endif]-->
+    <!--[if mso]>
+      <td
+        class=3D"tb tm"
+        kjb-settings-id=3D"sections_1754401699926_settings_body"
+        style=3D"mso-line-height-rule: exactly; line-height: 136%; color: #=
+000000; "
+        valign=3D"top"
+      >
+    <![endif]-->
+      <p data-start=3D"1062" data-end=3D"1310" class=3D"" style=3D"caret-co=
+lor: #000000; color: #000000;"><span style=3D"font-size: 14px;">Bom domingo=
+! Beijinhos=C2=A0</span></p>
+<p style=3D"color: #000000; font-family: sans-serif; margin: 10px 0px;"><sp=
+an style=3D"font-size: 14px;">A tua professora de Portugu=C3=AAs =F0=9F=A7=
+=A1</span></p>
+<p style=3D"color: #000000; font-family: sans-serif; margin: 10px 0px;"><sp=
+an class=3D"il" style=3D"font-size: 14px;">Anita</span></p>
+    </td>
+  </tr>
+</table>
+
+             =20
+          </td>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sr hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sr hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"20"
+        valign=3D"top"
+        class=3D"sb hm"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"20"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"15"
+        valign=3D"top"
+        class=3D"sb hd"
+        style=3D"font-size: 0; line-height: 0; display: none; max-height: 0=
+; mso-hide: all;"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"15"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--<![endif]-->
+</table>
+
+
+</div><div id=3D"section-1741642176977" data-section-id=3D"1741642176977">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-1741642176977 .st {
+      height: 15px !important;
+    }
+    #section-1741642176977 .st img {
+      height: 15px !important;
+    }
+    #section-1741642176977 .sb {
+      height: 15px !important;
+    }
+    #section-1741642176977 .sb img {
+      height: 15px !important;
+    }
+    #section-1741642176977 .sl {
+      width: 20px !important;
+    }
+    #section-1741642176977 .sl img {
+      width: 20px !important;
+    }
+    #section-1741642176977 .sr {
+      width: 20px !important;
+    }
+    #section-1741642176977 .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<!--[if !mso]>-->
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1741642176977_settings_background"
+    role=3D"presentation"
+    style=3D"max-width:640px;background-color: #ffffff; "
+    valign=3D"top"
+    width=3D"100%"
+  >
+<!--<![endif]-->
+<!--[if mso]>
+  <table
+    border=3D"0"
+    cellpadding=3D"0"
+    cellspacing=3D"0"
+    class=3D"wr "
+    kjb-settings-id=3D"sections_1741642176977_settings_background"
+    style=3D"background-color: #ffffff; "
+    valign=3D"top"
+  >
+<![endif]-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"20"
+        valign=3D"top"
+        class=3D"st hm"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"20"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"15"
+        valign=3D"top"
+        class=3D"st hd"
+        style=3D"font-size: 0; line-height: 0; display: none; max-height: 0=
+; mso-hide: all;"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"15"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--<![endif]-->
+  <tr>
+    <td
+      align=3D"center"
+      style=3D"font-family:  sans-serif;"
+      valign=3D"top"
+    >
+      <!--[if !mso]>-->
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          role=3D"presentation"
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <!--<![endif]-->
+      <!--[if mso]>
+        <table
+          border=3D"0"
+          cellpadding=3D"0"
+          cellspacing=3D"0"
+          style=3D""
+          width=3D"100%"
+          valign=3D"top"
+        >
+      <![endif]-->
+        <tr>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sl hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sl hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+          <td
+            class=3D"cn"
+            width=3D"560"
+          >
+           =20
+                <table
+  align=3D"center"
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"cn  si"
+  role=3D"presentation"
+  style=3D" text-align: center; margin: 0 auto;"
+  valign=3D"top"
+  width=3D""
+>
+  <tr>
+   =20
+
+
+
+
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+  <td
+    class=3D"sii"
+    valign=3D"top"
+    width=3D"30"
+  >
+    <a href=3D"https://email.h.kajabimail.net/c/eJxskM2O2yAURp_GbKqxLj_GeMG=
+iVRup6z6AdQ3XMU0MLuCJ5u2rJB6p6syS78AROrhtY8SV7AV_4xReSk2Z5pxiLS9bTn53NaTIvJ=
+210R1nZHk_cA5cgmK0YriOnq7hlfLbGLxVHe85aAkGDhq8FbwzWolBmGNbqRQ801jfNrLPacoJv=
+cNSjyuZStqzo0_fF_qzU3zC92mfHrYf99O3_2SfkcXC0PcTVxomhX7ohEPkWnE1qRmIz8SCFSA0=
+B1BgwAjRzsobiZ2UA5hBatkoWNpnuLu8jVTZ1S61bqWRXxtxasTpdru1MzqaUrq0Lq2NOG0p1_2=
+8U6FbqAvGUJG9JykUPeXRpxVDtB_s2V4wX9EttMdzf__A-cFcWlkmF7ZAsT6aKdGZvpPSsBLqkV=
+H1nQEjJav2V6j05ef3Rsh_5lcr_gYAAP__ktCvLg">
+      <img
+        alt=3D"Facebook"
+        border=3D"0"
+        height=3D"30"
+        kjb-settings-id=3D"sections_1741642176977_settings_social_icon_link=
+_facebook"
+        src=3D"https://kajabi-products-development.s3.amazonaws.com/static_=
+assets/themes/encore-email/color-facebook.png"
+        style=3D"padding: 0; border: none; display: block; outline: none; t=
+ext-decoration: none;"
+        width=3D"30"
+      />
+    </a>
+  </td>
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+  <td
+    class=3D"sii"
+    valign=3D"top"
+    width=3D"30"
+  >
+    <a href=3D"https://email.h.kajabimail.net/c/eJxskM-O2yAQxp_GXKq1-GNjOHB=
+o1UbquQ9gjWFi043BhfFG-_ZVEq9UdXPk-zHfjH6wbWOCFd0r_IYpvlTKBc8lJ6ovW8lh9xRzYs=
+GdtdG9YOjEYIXgQvGO4QrxMga8xDcs72MMruvFILhW3PCDxuCk6I3upJXmyFasFWYc6X1D94imk=
+iF4qHR8KVjzXjw-na_4Z8f0gB_RPt3bftxe3_4re0YWp63yMA1ew8C9tUMAxUELjgbFFLxl0Uku=
+teC844YbKdtzF4yCXinLjVVaNR1f2oe4W3mbkNjFLURbbdTXRp4aebper21MlWAusLY-r408bbn=
+QPu9Y8RppgRQJGnliH1oqpoBlDHmFmNynDcW9QrmAX3BP83A7Yr4zn1dW0MctYqK7t072ZuiVMq=
+xGOlR2Q2-4UYqR-xUJv_z83kj1T_zm5N8AAAD__78rsMc">
+      <img
+        alt=3D"Instagram"
+        border=3D"0"
+        height=3D"30"
+        kjb-settings-id=3D"sections_1741642176977_settings_social_icon_link=
+_instagram"
+        src=3D"https://kajabi-products-development.s3.amazonaws.com/static_=
+assets/themes/encore-email/color-instagram.png"
+        style=3D"padding: 0; border: none; display: block; outline: none; t=
+ext-decoration: none;"
+        width=3D"30"
+      />
+    </a>
+  </td>
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+
+
+   =20
+
+
+
+
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+  <td
+    class=3D"sii"
+    valign=3D"top"
+    width=3D"30"
+  >
+    <a href=3D"https://email.h.kajabimail.net/c/eJxskMtq3DAUhp9mtCkxRzdbWmi=
+R0ga6K_QBzLF1PFYzllxdMszbl7kESpOlvl_6EB_u-xhxI_eKv3EKT6WmTEtOsZanPSff5hpSZN=
+4tvek1Z-T4YDkHLkEx2jCcRk-n8Eb5MgbvlOYDh16CgccavBNcm14JK8yDbVQKHmmsl53cHU05o=
+Z-x1MeVTCW1PNOn7wv9aRTv4ztq0832_Xr6-p_ss2V1g5AWFi_AI1qDerKTl3pBA9IKOwALToDo=
+OYACA0aIblHeSNRSWjBW9vKgYO3u4a7yLlJlJ7fWupeDfD6Il4N4OZ_P3SW12ibq5rRdoYKfKdd=
+2bFToHOr6HENF9h6lUPSUR582DNF98Gf3ivmE80otHofrF463bU4byzSHPVCst2pKaDNoKQ0roT=
+5CqkEbMFKy6n6FSl9-fDsI-Q9-c-JvAAAA__-KhK8t">
+      <img
+        alt=3D"YouTube"
+        border=3D"0"
+        height=3D"30"
+        kjb-settings-id=3D"sections_1741642176977_settings_social_icon_link=
+_youtube"
+        src=3D"https://kajabi-products-development.s3.amazonaws.com/static_=
+assets/themes/encore-email/color-youtube.png"
+        style=3D"padding: 0; border: none; display: block; outline: none; t=
+ext-decoration: none;"
+        width=3D"30"
+      />
+    </a>
+  </td>
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+  <td
+    class=3D"sii"
+    valign=3D"top"
+    width=3D"30"
+  >
+    <a href=3D"https://email.h.kajabimail.net/c/eJxskM2O2yAUhZ_GbKqx-DEYL1i=
+0aiN13QewbuA6phMDheup5u0rJxmparPkO3A4-qCUOcGG7hV-wjm-NMoVl5oTtZdSc9g9xZxYcI=
+uxRguGToyTEFwoPjDcIF7ngNf4hvV9jsENWoyCG8Utf6QxOCm0NYOcpH2wDVuDC870XtDd0blmC=
+B4aPa5UbHmvHp--b_hrx3QPP9B-vrV9O05f_il7lqxOQDDqWOunCcMkzDgu3ixBIwcTULDoJJdG=
+cD5wy62U_TIEq0ArNXE7KaO6ga_9XdxR3ickdnUrUWmd-tzJUydPhfoSE2HFRr3P24Fypf2yY8P=
+fkVZIkaCTJ_ZhpWEKWOeQN4jJ_fdBda9Qr-BX3NNlPDZcbpnPG6voY4mY6KZtkNqOWinLWqSHyW=
+HUllulGLkfkfDT96-dVH_hNyf_BAAA___XjLA6">
+      <img
+        alt=3D"Pinterest"
+        border=3D"0"
+        height=3D"30"
+        kjb-settings-id=3D"sections_1741642176977_settings_social_icon_link=
+_pinterest"
+        src=3D"https://kajabi-products-development.s3.amazonaws.com/static_=
+assets/themes/encore-email/color-pinterest.png"
+        style=3D"padding: 0; border: none; display: block; outline: none; t=
+ext-decoration: none;"
+        width=3D"30"
+      />
+    </a>
+  </td>
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+  <td
+    class=3D"sii"
+    valign=3D"top"
+    width=3D"30"
+  >
+    <a href=3D"https://email.h.kajabimail.net/c/eJxskM2O2yAURp_GbKqx-DEYL1i=
+0ai113QewbuA6uY0NLuBE8_ZVfkaqOlnyHThCB7ZtirCiO8NvONBbqSnjnFOs5W3LKey-UoosuN=
+lYowVDJ_pBCC4U7xiuQMsUcKEL5veJguu06AU3ilv-pBScFNqaTg7SPrcVS4EjTvV9Q_eYDjlB8=
+FDq80rGkvbs8eX7gn92jA_4Me2Hu-3H7fTtP9krcnJagx-UVYizxn6GfkYQBqzmZpiFBkZOcmkE=
+5x233ErZzl2wCrRSA7eDMqrp-Kl9hLvJ24iVLe5U61Ya9bWRYyPH6_XaLhTPGCi2Pq2NHCk2coR=
+IFQIUWi4gGjmyjygFY8A8hbQCRffJn90Z8gL-hHs89rcvHO_Mp5Vl9LQRxnqv1klte62UZYXqM2=
+TXa8utUqy6X1Txy8_vjVT_zBcn_wYAAP__peGu2Q">
+      <img
+        alt=3D"LinkedIn"
+        border=3D"0"
+        height=3D"30"
+        kjb-settings-id=3D"sections_1741642176977_settings_social_icon_link=
+_linkedin"
+        src=3D"https://kajabi-products-development.s3.amazonaws.com/static_=
+assets/themes/encore-email/color-linkedin.png"
+        style=3D"padding: 0; border: none; display: block; outline: none; t=
+ext-decoration: none;"
+        width=3D"30"
+      />
+    </a>
+  </td>
+  <td
+    class=3D"sig"
+    valign=3D"middle"
+    width=3D"5"
+  >
+    <img
+      border=3D"0"
+      height=3D"1"
+      src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+      style=3D"display: block; outline: none; text-decoration: none;"
+      width=3D"5"
+    />
+  </td>
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+
+   =20
+
+
+
+
+
+  </tr>
+</table>
+
+             =20
+          </td>
+         =20
+            <td
+              align=3D"center"
+              width=3D"40"
+              valign=3D"middle"
+              class=3D"sr hm"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"40"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--[if !mso]>-->
+         =20
+            <td
+              align=3D"center"
+              width=3D"20"
+              valign=3D"middle"
+              class=3D"sr hd"
+              style=3D"font-size: 0; line-height: 0; display: none; max-hei=
+ght: 0; mso-hide: all;"
+            >
+              <img
+                alt=3D""
+                border=3D"0"
+                width=3D"20"
+                src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+                style=3D"display: block; outline: none; text-decoration: no=
+ne;"
+                height=3D"1"
+              />
+            </td>
+         =20
+          <!--<![endif]-->
+        </tr>
+      </table>
+    </td>
+  </tr>
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"20"
+        valign=3D"top"
+        class=3D"sb hm"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"20"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--[if !mso]>-->
+ =20
+    <tr>
+      <td
+        align=3D"center"
+        height=3D"15"
+        valign=3D"top"
+        class=3D"sb hd"
+        style=3D"font-size: 0; line-height: 0; display: none; max-height: 0=
+; mso-hide: all;"
+      >
+        <img
+          alt=3D""
+          border=3D"0"
+          height=3D"15"
+          src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+          style=3D"display: block; outline: none; text-decoration: none;"
+          width=3D"1"
+        />
+      </td>
+    </tr>
+ =20
+  <!--<![endif]-->
+</table>
+
+
+</div></div>
+          <div id=3D"section-footer" data-section-id=3D"footer">
+
+
+
+
+
+
+
+
+<style type=3D"text/css">
+  @media all and (max-width: 639px) {
+    #section-footer .st {
+      height: 15px !important;
+    }
+    #section-footer .st img {
+      height: 15px !important;
+    }
+    #section-footer .sb {
+      height: 15px !important;
+    }
+    #section-footer .sb img {
+      height: 15px !important;
+    }
+    #section-footer .sl {
+      width: 20px !important;
+    }
+    #section-footer .sl img {
+      width: 20px !important;
+    }
+    #section-footer .sr {
+      width: 20px !important;
+    }
+    #section-footer .sr img {
+      width: 20px !important;
+    }
+  }
+</style>
+
+
+<table
+  border=3D"0"
+  cellpadding=3D"0"
+  cellspacing=3D"0"
+  class=3D"wr"
+  role=3D"presentation"
+  style=3D"background-color: #ffffff; color: #555555; font-size: 12px;"
+  width=3D"640"
+  valign=3D"top"
+>
+  <tr>
+    <td
+      align=3D"center"
+      class=3D"st"
+      height=3D"20"
+      valign=3D"top"
+    >
+      <img
+        alt=3D""
+        border=3D"0"
+        height=3D"20"
+        src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+        style=3D"display: block; outline: none; text-decoration: none;"
+        width=3D"1"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table
+        border=3D"0"
+        cellpadding=3D"0"
+        cellspacing=3D"0"
+        role=3D"presentation"
+        width=3D"100%"
+        valign=3D"top"
+      >
+        <tr>
+          <td
+            align=3D"center"
+            class=3D"sl"
+            width=3D"40"
+            valign=3D"middle"
+          >
+            <img
+              alt=3D""
+              border=3D"0"
+              width=3D"40"
+              src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+              style=3D"display: block; outline: none; text-decoration: none=
+;"
+              height=3D"1"
+            />
+          </td>
+          <td
+            width=3D"560"
+            align=3D"center"
+          >
+            <table
+              class=3D"cn"
+              role=3D"presentation"
+              width=3D"560"
+              align=3D"center"
+            >
+              <tr>
+                <td
+                  align=3D"center"
+                  style=3D"color:#555555;font-size:12px;font-family:  sans-=
+serif; font-size: 12px;"
+                  valign=3D"top"
+                >
+                  <a
+                    href=3D"https://email.h.kajabimail.net/c/eJxskU2O3CAUhE=
+-DN5Fb8MAYL1gkmljKOgewMDx3E9vg8DOtuX3UPxONkllSH6-kqjLHMQWzo17NLzP7NpeYcEkxl=
+NweKbpqi4-hcXqRSnasQc36gTHKOBUN7sZvk8PNv2J6m7zTomM9o5JTRZ_UOw2sU1LAAOqp7Ziz=
+OeNU3g7UD2lO0Thrcnl-SZhjTRY_vc_4u2J4wHepzne377fXt3_MPiMXPQg2UJyVXKhVdqazVY7=
+jItQyzNIK0XgNFCSjVFBFFcBpEU5x03E-UDVwyYmgl9OjuJv5KWBpNn0p5ciEfyUwEhiv1-vpiK=
+nUc8WMV18uJvhiTjbuBEYbQzG2ZAIjCOhU33GuCIy5ztkmf9zKJ3x03hH-8qFcAjKv_pjs5u06l=
+WTs6sOZ8JeSKhKQtd4vgLkOqehbQxfRCmC8HSiK1i2OOeUEN4tt3tfIGBymycXd-KD_C5b0atJm=
+7AVrOPe37Oc7s3FvElp_eAzlPtffIE325bmg6DtFFedN0T99wS8_XgjwD_Krhj8BAAD__5MG1As=
+"
+                    style=3D"color: #555555;  font-size: 12px;"
+                  >Unsubscribe</a> | Sent by Portuguese With Anita
+                </td>
+              </tr>
+              <tr>
+                <td
+                  align=3D"center"
+                  style=3D"color: #555555;font-size: 12px;font-family:  san=
+s-serif; font-size: 12px;"
+                  valign=3D"top"
+                >
+                  Avenue &bull; Lisbon, Lisbon &bull;  1100053
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td
+            align=3D"center"
+            class=3D"sr"
+            width=3D"40"
+            valign=3D"middle"
+          >
+            <img
+              alt=3D""
+              border=3D"0"
+              width=3D"40"
+              src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+              style=3D"display: block; outline: none; text-decoration: none=
+;"
+              height=3D"1"
+            />
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td
+      align=3D"center"
+      class=3D"sb"
+      height=3D"20"
+      valign=3D"top"
+    >
+      <img
+        alt=3D""
+        border=3D"0"
+        height=3D"20"
+        src=3D"https://a.kajabi.com/9/9d08eac.png
+"
+        style=3D"display: block; outline: none; text-decoration: none;"
+        width=3D"1"
+      />
+    </td>
+  </tr>
+</table>
+
+</div>
+        </td>
+      </tr>
+    </table>
+  <img width=3D"1" height=3D"1" alt=3D"" src=3D"https://email.h.kajabimail.=
+net/o/eJxskEtuwjAQQE-DNxXIvziThTdVu-i6B4gm9gRciJ3aDhK3r4AgVS1Lvzd-0gzOcx9xI=
+nvELxzCttSUacwp1rKdc_KLqyFF5u1owDSCkRVtJwQXimtGE4ZT7-kUzpQvffBWN6IV3CgOfLXB=
+WykaMFp2ElY2USm4p75eZrJ3NOSE3mGp60imkpbs6On_Qt8Lxbt8oGW41d6vr9c_sWfmYKETLeL=
+AQToEDsOgtUSUzo3Gg_GGBSu5NIJzzYGDlLtRe1DYKNVx6JRRG80Pu_vhrvFdpMoeuxWKnnLv04=
+Qh2n9j2R4xn9AdaIn79lra35xLE8vkwhwo1tvyWjbQNkoBK6Gu99BtAxyUYtV-hkovH28bqX7hs=
+5U_AQAA__9t6JvQ"></body>
+</html>
+
+
+--f712499bf79d1d2f5cea3224d96e975664ad15206c481b028b9c156efbb1--

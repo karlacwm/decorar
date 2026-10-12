@@ -6,27 +6,12 @@ readme = "README.md"
 authors = [
     { name = "karlacwm", email = "karlacheung73@gmail.com" }
 ]
-requires-python = ">=3.11"
-dependencies = [
-    "pydantic>=2.0.0",
-    "pyperclip>=1.8.2",
-    "python-dotenv>=1.0.0",
-]
+requires-python = ">=3.12"
+dependencies = []
 
-[project.optional-dependencies]
-gmail = [
-    "google-api-python-client>=2.0.0",
-    "google-auth-httplib2>=0.1.0",
-    "google-auth-oauthlib>=1.0.0",
-]
-llm = [
-    "openai>=1.0.0",  # Or your chosen provider / local client
-]
-dev = [
-    "pytest>=8.0.0",
-    "ruff>=0.3.0",
-]
+[project.scripts]
+decorar = "decorar:main"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"

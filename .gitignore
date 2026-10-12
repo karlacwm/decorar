@@ -1,4 +1,3 @@
 .env
-.aider*
-credentials.json
-token.json
+.venv/
+__pycache__/

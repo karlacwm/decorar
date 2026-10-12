@@ -1,16 +1,16 @@
 .PHONY: run test lint format clean
 
 run:
-	python -m decorar
+	uv run python3 -m src.decorar
 
 test:
-	pytest tests/
+	uv run pytest tests/
 
 lint:
-	ruff check .
+	uv run ruff check .
 
 format:
-	ruff format .
+	uv run ruff format .
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
